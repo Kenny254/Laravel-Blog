@@ -11,6 +11,34 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/*
+---------------------------------------------------------------------------
+ Frontend Routes
+---------------------------------------------------------------------------
+All these routes point to all static pages of this application
+*/
+//Route::get('datatables.data', 'PostsController@anyData')->name('datatables.data');
+Route::get('about', 'PagesController@getAbout');
+Route::get('contact', 'PagesController@getContact');
+Route::get('/', 'PagesController@getIndex');
+
+
+/*
+
+/*
+---------------------------------------------------------------------------
+ Backend Routes
+---------------------------------------------------------------------------
+All these routes point to all static pages of this application
+*/
+
+Route::get('dashboard', 'Backend\PagesController@getIndex');
+Route::resource('posts', 'PostsController');
+
+/*
+---------------------------------------------------------------------------
+ Blog post Routes
+---------------------------------------------------------------------------
+All these routes point to all static pages of this application
+*/
+
