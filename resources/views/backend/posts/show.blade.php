@@ -41,6 +41,7 @@
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked"> 
                 <li><a href="#"><i class="fa fa-comments"></i> Comments <span class="label label-warning pull-right">65</span></a></li>
+                <li class=""><a href="{{ route('blog.single', $post->slug) }}"><i class="fa fa-link"></i>{{ route('blog.single', $post->slug) }}</a></li>
                 <li class="disabled"><a href="#"><i class="fa fa-user"></i> By Anthony Mutinda</a></li>
                 <li class="disabled"><a href="#"><i class="fa fa-pencil"></i> Created on {{ date('M j, Y H:i', strtotime($post->created_at)) }}
                 <li class="disabled"><a href="#"><i class="fa fa-sticky-note"></i> Category : Miscellaneous</a></li>

@@ -12,7 +12,7 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+/*$factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -21,4 +21,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
+}); */
+
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence($nbWords = 6),
+        'slug' => $faker->slug(),
+        'body' => $faker->realText($maxNbChars = 400),
+    ];
 });
+

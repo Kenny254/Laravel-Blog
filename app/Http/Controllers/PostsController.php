@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'asc')->paginate(5);
+        $posts = Post::orderBy('id', 'asc')->paginate(10);
         return view('backend/posts/index', compact('posts'));
     }
 
@@ -41,12 +41,14 @@ class PostsController extends Controller
         // Validate the request...
         $this->validate($request, [
              'title' => 'required|max:255',
+             'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
              'body' => 'required|min:200',
             ]);
         
         // The blog post is valid, store in database...
         $post = new Post;
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
         $post->save();
 
@@ -88,15 +90,29 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Validate the request...
-        $this->validate($request, [
-             'title' => 'required|max:255',
-             'body' => 'required|min:200',
-            ]);
-
+        $post = Post::find($id);
+        if ($request->input('slug') == $post->slug) 
+        {
+           // Validate the title and body...
+            $this->validate($request, [
+                 'title' => 'required|max:255',
+                 'body' => 'required|min:200',
+                ]); 
+        }
+        else
+        {
+            // Validate the request...
+            $this->validate($request, [
+                 'title' => 'required|max:255',
+                 'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                 'body' => 'required|min:200',
+                ]);
+        }
+        
         // update into DB
         $post = Post::find($id);
         $post->title = $request->title;
+        $post->slug = $request->slug;
         $post->body = $request->body;
 
         //save into DB

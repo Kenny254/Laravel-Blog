@@ -28,15 +28,21 @@
 				{!! Form::open(['route' => 'posts.store', 'class' => 'form-horizontal']) !!}
 	 		   		<div class="box-body">
 	 		   			<div class="form-group">
-	 		   				{{ Form::label('title', 'Title:', array('class' => 'col-sm-2 control-label')) }}
+	 		   				{{ Form::label('title', 'Title:', array('class' => 'col-sm-2 control-label', 'id' => 'title')) }}
 	 		   				<div class="col-sm-10">
-	 		   					{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Your title')) }}
+	 		   					{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Your title', 'maxlength' => '255')) }}
+	 		   				</div>
+	 		   			</div>
+	 		   			<div class="form-group">
+	 		   				{{ Form::label('slug', 'Slug:', array('class' => 'col-sm-2 control-label')) }}
+	 		   				<div class="col-sm-10">
+	 		   					{{ Form::text('slug', null, array('class' => 'form-control', 'placeholder' => 'eg see-nice-post-here', 'minlength' => '5', 'maxlength' => '255')) }}
 	 		   				</div>
 	 		   			</div>
 	 		   			<div class="form-group">
 	 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}
 	 		   				<div class="col-sm-10">
-	 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..')) }}
+	 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'minlength' => '200')) }}
 	 		   				</div>
 	 		   			</div>
 	 		   		</div>

@@ -62,7 +62,7 @@
 							<tr>
 								<td>{{ $post->id }}</td>
 								<td>{{ $post->title }}</td>
-								<td>{{ substr($post->body, 0, 50) }}{{ strlen($post->body) > 50 ? "..." : "" }}</td>
+								<td>{{ substr($post->body, 0, 40) }}{{ strlen($post->body) > 40 ? "..." : "" }}</td>
 								<td>{{ date('M j, Y H:i', strtotime($post->created_at)) }}</td>
 								<td>{{ date('M j, Y H:i', strtotime($post->updated_at)) }}</td>
 								<td>

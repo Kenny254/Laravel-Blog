@@ -31,12 +31,18 @@
 	<div class="widget">
 		<div class="recent-posts-widget">
 			<h3 class="title-sidebar">From the blog</h3>
-			<ul class="nav nav-stacked">
-			  @foreach($posts as $post)
-				<li><a href="">{{ $post->title }}</a></li>
-				<hr style="display: inline; color: red; background: red;">
-			  @endforeach
-			</ul>
+			@if(count($posts) > 0)
+				<ul class="nav nav-stacked">
+				  @foreach($posts as $post)
+					<li><a href="">{{ $post->title }}</a></li>
+					<hr style="display: inline; color: red; background: red;">
+				  @endforeach
+				</ul>
+			@else
+				<div class="alert alert-warning">
+					<strong>Oops: </strong> No posts available!
+				</div>
+			@endif
 		</div> <!-- ./end recent-posts-widget -->
 	</div> <!--./end widget -->
 

@@ -9,7 +9,7 @@
                       <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                   </button>
                   <div class="logo">
-                    <a href="" id="logo" style="font-size: 21px; font-weight: bold;" class="text-info">{{ config('app.name') }}</a>
+                    <a href="{{ url('/') }}" id="logo" style="font-size: 21px; font-weight: bold;" class="text-info">{{ config('app.name') }}</a>
                   </div>
                 </div>
 

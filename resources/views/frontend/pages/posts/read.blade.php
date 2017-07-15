@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master-template')
 
-@section('title', 'Read this post')
+@section('title', "	$post->title ")
 
 @section('content')
 
@@ -11,7 +11,7 @@
       		  <!-- Caption for post -->
 		      <div class="caption">
 			        <h2 class="entry-title">
-			            <a href="" rel="bookmark">{{ $onepost->title }}</a>
+			            <a href="" rel="bookmark">{{ $post->title }}</a>
 			        </h2> <!-- //.entry-title -->
 			        <p class="text-muted author">
 			        	<i>
@@ -23,7 +23,7 @@
 				        	<strong>Nature</strong>
 			        	</i>
 			        </p>
-			        <p class="text-justify">{{ $onepost->body }}</p> <!-- post body --><br>
+			        <p class="text-justify">{{ $post->body }}</p> <!-- post body --><br>
 			        <p><strong>Tags: </strong>Lifestyle, adventure, blog, first</p>
 		      </div>
       	</div>

@@ -20,16 +20,19 @@ class PagesController extends Controller
         return view('frontend/pages/welcome', compact('posts'));
     }
 
-    public function getRead()
+    public function getSingle($slug)
     {
-        $onepost = DB::table('posts')->where('id', '1')->first();
+        //fetch from the DB based on slug
+        $post = Post::where('slug', '=', $slug)->first();
+
         // Get the latest 5 posts
         $posts = DB::table('posts')
                 ->orderBy('created_at', 'desc')
                 ->take(5)
                 ->get();
 
-    	return view('frontend/pages/posts/read', compact('posts', 'onepost'));
+        //return the view
+        return view('frontend.pages.posts.read', compact('post', 'posts'));
     }
 
 }
