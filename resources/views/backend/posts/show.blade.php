@@ -20,7 +20,15 @@
 @section('content')
 	<div class="row">
 		<div class="col-md-3">
-			<a href="{{ route('posts.create') }}" class="btn btn-primary btn-block margin-bottom">New Post</a>
+		   <div class="row">
+		   		<div class="col-md-6">
+			    	<a href="{{ route('posts.create') }}" class="btn btn-primary btn-block margin-bottom">New Post</a>
+			    </div>
+			    <div class="col-md-6">
+			    	<a href="{{ route('posts.index') }}" class="btn btn-info btn-block margin-bottom">Back to posts</a>
+			    </div>
+		   </div>
+		   			
 			<div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Details</h3>

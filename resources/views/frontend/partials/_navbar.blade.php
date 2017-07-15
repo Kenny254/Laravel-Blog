@@ -1,35 +1,54 @@
- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">{{ config('app.name') }}</a>
-    </div>
+ <header>
+   <div id="trueheader">
+     <div class="wrapper">
+         <div class="menu-main">
+           <nav class="navbar navbar-default navbar-fixed-top">
+             <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                  </button>
+                  <div class="logo">
+                    <a href="" id="logo" style="font-size: 21px; font-weight: bold;" class="text-info">{{ config('app.name') }}</a>
+                  </div>
+                </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{ url('/') }}">Welcome<span class="sr-only">(current)</span></a></li>
-        <li><a href="{{ url('/about') }}">About</a></li>
-        <li><a href="{{ url('/contact') }}">Contact</a></li>
-      </ul>
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ url('dashboard') }}">My Dashboard</a></li>
-            <li><a href="#">Profile</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                          <li><a href="{{ url('/') }}" class="{{ Request::is('/' ? "active" : "") }}">Home</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+                            <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#"><i class="fa fa-television"></i> Lifestyle</a></li>
+                              <li><a href="#"><i class="fa fa-female"></i> Fashion</a></li>
+                              <li><a href="#"><i class="fa fa-tree"></i> Nature</a></li>
+                              <li><a href="#"><i class="fa fa-cutlery"></i> &nbsp;Food</a></li>
+                              <li><a href="#"><i class="fa fa-male"></i> &nbsp;&nbsp;Political</a></li>
+                              <li><a href="#"><i class="fa fa-bar-chart"></i> Economics</a></li>
+                              <li><a href="#"><i class="fa fa-laptop"></i> Technology</a></li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account
+                            <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a href="{{ url('dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                              <li><a href="#"><i class="fa fa-user"></i> &nbsp;Profile</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            </ul>
+                          </li>
+
+                          
+                      </ul>
+                  </div><!-- /.navbar-collapse -->
+                </div>
+             </div>
+           </nav>
+         </div>
+     </div>
+   </div>
+ </header>

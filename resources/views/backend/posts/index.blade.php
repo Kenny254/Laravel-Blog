@@ -2,6 +2,21 @@
 
 @section('title', 'My posts')
 
+@push('styles')
+	<style>
+		#search {
+		    width: 80px;
+		    -webkit-transition: width 0.4s ease-in-out;
+		    transition: width 0.4s ease-in-out;
+		}
+
+		/* When the input field gets focus, change its width to 100% */
+		#search:focus {
+		    width: 20%;
+		}
+	</style>
+@endpush
+
 @section('content-header')
 	<section class="content-header">
 	      <h1>
@@ -68,8 +83,9 @@
                 	</tbody>
                 @endif               
               </table>
-              <div class="">
-              	{!! $posts->links(); !!}
+              <div>
+                <span style="line-height: 60px;">Showing {!! $posts->firstItem() !!} to {!! $posts->lastItem() !!} of {{ $posts->total() }} posts</span>
+              	<span class="pull-right">{!! $posts->links(); !!}</span>
               </div>
             </div>
             <!-- /.box-body -->
@@ -102,3 +118,7 @@
 	</script>
 -->
 @endpush
+
+
+
+

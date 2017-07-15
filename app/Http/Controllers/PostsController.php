@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Yajra\Datatables\Datatables;
+//use Yajra\Datatables\Datatables;
 use App\Post;
 
 class PostsController extends Controller
@@ -16,7 +16,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->paginate(6);
+        $posts = Post::orderBy('id', 'asc')->paginate(5);
         return view('backend/posts/index', compact('posts'));
     }
 

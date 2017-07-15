@@ -11,14 +11,14 @@
 
     <!-- CSS Files -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
     <!-- Fonts and icons -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet">
     <!-- Theme Style -->
     <link href="{{ asset('AdminLTE/dist/css/AdminLTE.css') }}" rel="stylesheet" />
     <link href="{{ asset('AdminLTE/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     @stack('styles')
 
 

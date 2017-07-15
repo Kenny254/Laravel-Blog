@@ -1,0 +1,213 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+/* 
+===========================================================
+
+            GENERAL STYLES
+
+===========================================================
+*/
+
+body{
+	font-family: 'Source Sans Pro', Georgia;
+    font-size: 15px;
+}
+article,aside,details,figcaption,figure,footer,header,main,nav,section {
+    display: block;
+}
+a {
+    color: #333;
+    text-decoration: none;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+}
+a:hover, a:focus {
+    color: #68c3a3;
+    text-decoration: none;
+}
+input{
+    background: #F7F7F7 !important;
+    border-radius: 0 !important;
+    border: 1px solid #CCC;
+}
+input:focus{
+    box-shadow: none !important;
+    background: transparent !important;
+}
+.form-group input, .form-group textarea{
+    background: #F7F7F7 !important;
+    border-radius: 0 !important;
+    border: 1px solid #CCC;
+}
+.form-group input:focus, .form-group textarea{
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+
+/* 
+===========================================================
+
+            NAVBAR
+
+===========================================================
+*/
+
+#trueheader{
+    background-color: #fff;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 1px #aaa;
+}
+.navbar-default{
+	position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+.logo{
+    padding-top: 16px;
+    padding-bottom: 12px;
+    width: 200px;
+}
+#logo{
+	width: 200px;
+	height: 25px;
+}
+.navbar{
+    margin-bottom: 0 !important;
+}
+.navbar-nav li a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 10px;
+    padding: 0;
+    background-color: transparent;
+    margin: 20px 20px;
+    font-size: 16px !important;
+}
+.navbar-nav li:last-child a{
+    margin-right: 0;
+}
+.navbar-collapse{
+    padding-right: 0;
+}
+.navbar-nav .dropdown-menu li a{
+    padding: 10px 20px;
+    margin: 0;
+}
+.navbar-default .navbar-nav .dropdown-menu li a:hover, .dropdown-menu li a:focus, .navbar-default .navbar-nav .dropdown-menu .active a{
+    background-color: #5BC0DE;
+    color: #fff;
+}
+.navbar-default .navbar-nav .active a, .navbar-default .navbar-nav .active a:hover, .navbar-default .navbar-nav .active a:focus {
+    color: #68c3a3;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav li a:hover, .navbar-default .navbar-nav li a:focus{
+    color: #68c3a3;
+}
+
+/* 
+===========================================================
+
+            WELCOME PAGE
+
+===========================================================
+*/
+
+.entry-title{
+	color: #333;
+	font-weight: 400;
+	font-size: 24px;
+}
+div.caption{
+	padding: 20px !important;
+}
+
+/* 
+===========================================================
+
+            SIDEBAR
+
+===========================================================
+*/
+
+div.widget{
+    background: #fff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+    padding: 35px;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+.title-sidebar{
+    margin-top: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 20px;
+    color: #333333;
+    font-weight: 600;
+}
+.recent-posts-widget .nav-stacked li{
+    border-bottom: 1px dotted #e2e2e2;
+}
+.recent-posts-widget .nav-stacked li a{
+    padding: 12px 0;
+    font-size: 16px;
+    line-height: 20px;
+}
+.recent-posts-widget .nav-stacked li a:hover{
+    background: none !important;
+}
+.light-blue{
+    background: #0B7DDA; 
+}
+.yellow{
+    background: #FF9800;
+}
+.deep-blue{
+   background: #337AB7; 
+}
+.green{
+   background: #4CAF50;
+}
+.red{
+  background: #F44336;  
+}
+.pink{
+  background: #FF69B4;  
+}
+.tags a{
+    margin: 4px;
+}
+
+/* 
+===========================================================
+
+            FOOTER
+
+===========================================================
+*/
+.main-footer{
+    border-top: 1px solid #CCC;
+    margin-top: 40px;
+}
+.footer-content{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    line-height: 24px;
+    word-spacing: 2px;
+}
+.is-gray{
+    color: #AAA;
+}
+.social-links a{
+    padding: 8px;
+    min-width: 38px !important;
+}
+.social-links .fa{
+    color: #FFF;
+}
+

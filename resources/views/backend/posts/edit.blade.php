@@ -53,19 +53,19 @@
 							<div class="form-group">
 		 		   				{{ Form::label('title', 'Title:', array('class' => 'col-sm-2 control-label')) }}
 		 		   				<div class="col-sm-10">
-		 		   					{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Your title')) }}
+		 		   					{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Your title', 'id' => 'title')) }}
 		 		   				</div>
 		 		   			</div>
 		 		   			<div class="form-group">
 		 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}
 		 		   				<div class="col-sm-10">
-		 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..')) }}
+		 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'id' => 'body')) }}
 		 		   				</div>
 		 		   			</div>
 						</div>
 					</div>
 					<div class="box-footer">
-		              {!! Html::linkRoute('posts.show', 'Cancel', array($post->id), array('class' => 'btn btn-danger btn-sm')) !!}
+					  {{ Form::button('Clear', ['onclick' => 'ClearFields();', 'class' => 'btn btn-danger btn-sm']) }}
 					  {{ Form::submit('Save Changes', ['class' => 'btn btn-success btn-sm']) }}	
 		            </div>
 		            <!-- /.box-footer -->
@@ -74,3 +74,12 @@
 		</div>
 	</div>
 @endsection
+
+@push('scripts')
+	<script>
+		function ClearFields() {
+		     document.getElementById("title").value = "";
+		     document.getElementById("body").value = "";
+		}
+	</script>
+@endpush
