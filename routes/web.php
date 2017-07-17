@@ -23,7 +23,8 @@ Route::group(['prefix' => 'blog'], function () {
     Route::get('/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
 });
 */
-Route::get('blog/{slug}', 'PagesController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
+Route::get('blog', 'BlogController@getIndex')->name('blog.index');
+Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
 Route::get('/', 'PagesController@getIndex');
 
 

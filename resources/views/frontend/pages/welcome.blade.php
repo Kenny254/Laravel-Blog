@@ -1,47 +1,64 @@
-@extends('frontend.layouts.master-template')
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        @include('frontend/partials/welcome/_head')
+    </head>
+    <body>
 
-@section('title', 'Welcome')
+        <div class="wrapper">
+            <!-- Header -->
+            @include('frontend/partials/welcome/_header')
 
-@section('content')
-    <div class="widget">
-		<h3 class="text-center" style="font-weight: bold; text-transform: uppercase;">Read Latest posts below</h3>
-	</div> <!--./end widget -->	
+            <!-- sliders area -->
+            @include('frontend/partials/welcome/_sliders')
 
-    @if(count($posts) > 0)
-    <!-- Loop through all recent posts -->
-		@foreach($posts as $post)
-	      <article>
-	      	<div class="thumbnail">
-	      	      <!-- Image for each post -->
-	      		  <img src="{{ asset('images/pic1.jpg') }}" alt="...">
-	      		  <!-- Caption for post -->
-			      <div class="caption">
-				        <h2 class="entry-title">
-				            <a href="" rel="bookmark">{{ $post->title }}</a>
-				        </h2> <!-- //.entry-title -->
-				        <p class="text-muted author">
-				        	<i>
-				        		By 
-					        	<strong>Anthony Mutinda</strong>
-					        	on 
-					        	<strong>23rd June, 2017</strong>
-					        	in 
-					        	<strong>Nature</strong>
-				        	</i>
-				        </p>
-				        <p class="text-justify">{{ substr($post->body, 0, 200) }}{{ strlen($post->body) > 200 ? "..." : "" }}</p> <!-- post body --><br>
-				        <p><a href="{{ url('blog/'.$post->slug) }}" class="btn btn-info" role="button">Read more</a></p>
-			      </div>
-	      	</div>
-	      </article>
-	    @endforeach<!-- ./end foreach -->
+            <!-- service area -->
+            @include('frontend/partials/welcome/_services')
 
-	@else
-		<div class="alert alert-warning text-center">
-			<strong>Oops:</strong> No posts are available yet!
-		</div>
-	@endif
-			
-@endsection
+            <!-- about area -->
+            @include('frontend/partials/welcome/_about')
+
+            <!-- features area -->
+            @include('frontend/partials/welcome/_features')
+
+            <!-- Counter area -->
+            @include('frontend/partials/welcome/_counter')
+
+            <!-- download Area -->
+            @include('frontend/partials/welcome/_download')
+
+            <!-- pricing area -->
+            @include('frontend/partials/welcome/_pricing')
+
+            <!-- newsletter area -->
+            @include('frontend/partials/welcome/_newsletter')
+
+            <!-- testimonials Area -->
+            @include('frontend/partials/welcome/_testimonials')
+
+            <!-- posts from the blog -->
+            @include('frontend/partials/welcome/_from_the_blog')
+
+            <!-- brand logo -->
+            @include('frontend/partials/welcome/_brands')
+
+            <!-- contact area -->
+            @include('frontend/partials/welcome/_contact')
+
+            <!-- footer area -->
+            @include('frontend/partials/welcome/_footer')
+
+            <!-- scroll to top -->
+            <div id="toTop">
+                <i class="fa fa-chevron-up"></i>
+            </div>
+
+        </div> <!-- .//End wrapper -->
+        
+        <!-- Scripts -->
+		@include('frontend/partials/welcome/_scripts')
+    </body>
+</html>
+
 
 

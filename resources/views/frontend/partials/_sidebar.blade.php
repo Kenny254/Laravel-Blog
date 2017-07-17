@@ -34,8 +34,8 @@
 			@if(count($posts) > 0)
 				<ul class="nav nav-stacked">
 				  @foreach($posts as $post)
-					<li><a href="">{{ $post->title }}</a></li>
-					<hr style="display: inline; color: red; background: red;">
+					<li><a href="{{ route('blog.single', $post->slug) }}"><img src="{{ asset('images/blogging.png') }}" alt="" style="width: 18px; height: 18px;"> {{ $post->title }}</a></li>
+					<hr style="display: inline;">
 				  @endforeach
 				</ul>
 			@else

@@ -10,15 +10,13 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 
     <!-- CSS Files -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/jquery.dataTables.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/dataTables.bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/core/bootstrap.min.css') }}" rel="stylesheet" />
     <!-- Fonts and icons -->
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/ionicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/core/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/core/ionicons.min.css') }}" rel="stylesheet">
     <!-- Theme Style -->
-    <link href="{{ asset('AdminLTE/dist/css/AdminLTE.css') }}" rel="stylesheet" />
-    <link href="{{ asset('AdminLTE/dist/css/skins/_all-skins.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/dashboard/AdminLTE.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/dashboard/_all-skins.min.css') }}" rel="stylesheet" />
     @stack('styles')
 
 
@@ -87,12 +85,13 @@ desired effect
     <!-- Bootstrap -->
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <!-- Fastclick -->
-    <script src="{{ asset('AdminLTE/plugins/fastclick/fastclick.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('AdminLTE/dist/js/app.min.js') }}"></script>
+    <script src="{{ asset('js/dashboard/adminLTE.min.js') }}"></script>
     <!-- SlimScroll -->
-    <script src="{{ asset('AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/plugins/jquery.slimscroll.min.js') }}"></script>
+    <!-- Custom Script -->
+    <script src="{{ asset('js/core/custom.js') }}"></script>
     <script>
       $( document ).ready(function() {
           $.AdminLTE.dynamicMenu();

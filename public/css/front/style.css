@@ -11,7 +11,7 @@
     
     CSS INDEX
     ===================
-  
+	
     1. Template default css
     2. Main menu
     3. Service area
@@ -699,7 +699,7 @@ Margin top
     padding: 8px 0 14px;
 }
 /*----------------------
-  2. Main menu
+	2. Main menu
 ------------------------*/
 
 #home-area .table {
@@ -810,7 +810,7 @@ Margin top
     padding: 0;
 }
 .bg-img-1 {
-    background: url("img/bg-img/bg-1.jpg") no-repeat scroll center bottom / cover;
+    background: url("../img/bg-img/railway.jpg") no-repeat scroll center bottom / cover;
 }
 .bg-oapcity-40 {
     position: relative;
@@ -924,7 +924,7 @@ a.button.active:hover {
 }
 
 /*----------------------
-  3. Service area
+	3. Service area
 ------------------------*/
 
 
@@ -951,7 +951,7 @@ a.button.active:hover {
     text-transform: uppercase;
 }
 /*----------------------
-  4. About area
+	4. About area
 ------------------------*/
 
 .about-bottom-left > h2 {
@@ -1016,7 +1016,7 @@ p.about-pb {
     transition: all 0.3s ease 0s;
 }
 /*----------------------
-  5. Feature area
+	5. Feature area
 ------------------------*/
 
 .title-style > h1 {
@@ -1099,7 +1099,7 @@ p.about-pb {
     padding-right: 100px;
 }
 /*----------------------
-  Choose area
+	Choose area
 ------------------------*/
 
 .choose-img > img {} .choose-area .feature-list-text2 {
@@ -1111,7 +1111,7 @@ p.about-pb {
     margin-left: -30px;
 }
 /*----------------------
-  6. Video area 
+	6. Video area 
 ------------------------*/
 .about-bottom-img > img {
   width: 100%;
@@ -1186,7 +1186,7 @@ p.about-pb {
     color: #fff;
 }
 /*----------------------
-  7. Download area
+	7. Download area
 ------------------------*/
 
 .bg-2 {
@@ -1332,7 +1332,7 @@ a.download.active {
     content: "\f273";
 }
 /*----------------------
-  8. Screenshot area
+	8. Screenshot area
 ------------------------*/
 .awesome-desc {
   position: absolute;
@@ -1392,7 +1392,7 @@ a.download.active {
   padding-left: 0px;
 }
 /*----------------------
-  9. Review area
+	9. Review area
 ------------------------*/
 
 .team-image > img {
@@ -1425,7 +1425,7 @@ a.download.active {
     font-size: 60px;
 }
 /*----------------------
-  12. blog area
+	12. blog area
 ------------------------*/
 
 .blog-img {
@@ -1482,7 +1482,7 @@ a.download.active {
     padding-right: 0;
 }
 /*----------------------
-  10. Pricing area
+	10. Pricing area
 ------------------------*/
 
 .about-bottom-left.pricing-mrg {
@@ -1572,7 +1572,7 @@ a.download.active {
     color: #616161;
 }
 /*----------------------
-  11. Counter area
+	11. Counter area
 ------------------------*/
 
 .funfact-count h3 {
@@ -1594,7 +1594,7 @@ a.download.active {
     color: #4a90e2;
 }
 /*----------------------
-  12. Newsletter area
+	12. Newsletter area
 ------------------------*/
 
 .newsletter-area.bg-oapcity-40::before {
@@ -1656,7 +1656,7 @@ a.download.active {
     color: #ffffff;
 }
 /*----------------------
-  13. Slider logo
+	13. Slider logo
 ------------------------*/
 
 .single-item2 > a img {
@@ -1671,7 +1671,7 @@ a.download.active {
     border: 1px solid #4a90e2;
 }
 /*----------------------
-  14. Contact area
+	14. Contact area
 ------------------------*/
 
 #hastech {
@@ -1803,7 +1803,7 @@ button.submit:hover {
     color: #fff;
 }
 /*----------------------
-  15. Footer area
+	15. Footer area
 ------------------------*/
 
 .footer-icon li {

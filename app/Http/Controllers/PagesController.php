@@ -13,26 +13,11 @@ class PagesController extends Controller
         // Get the latest 5 posts
         $posts = DB::table('posts')
                 ->orderBy('created_at', 'desc')
-                ->take(3)
+                ->take(5)
                 ->get();
 
 
         return view('frontend/pages/welcome', compact('posts'));
-    }
-
-    public function getSingle($slug)
-    {
-        //fetch from the DB based on slug
-        $post = Post::where('slug', '=', $slug)->first();
-
-        // Get the latest 5 posts
-        $posts = DB::table('posts')
-                ->orderBy('created_at', 'desc')
-                ->take(5)
-                ->get();
-
-        //return the view
-        return view('frontend.pages.posts.read', compact('post', 'posts'));
     }
 
 }
