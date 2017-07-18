@@ -3,7 +3,7 @@
         <div class="col-md-12 text-center">
             <div class="footer-all">
                 <div class="footer-logo logo">
-                    <a href="text-animator.html#"><img src="img/logo/2.png" alt=""></a>
+                    <a href=""><i class="fa fa-desktop fa-2x" style="color: #4A90E2"></i></a>
                 </div>
                 <div class="footer-icon">
                     <p>Follow us on our social links and share your experiences, views <br> and thoughts as we interact.</p>

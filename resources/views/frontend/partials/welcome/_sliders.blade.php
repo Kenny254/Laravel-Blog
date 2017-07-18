@@ -7,9 +7,9 @@
                         <div class="slider-text">
                             <h2 class="cd-headline clip"> 
                                 <span class="cd-words-wrapper">
-                                    <b class="is-visible"> Easy Integration</b>
-                                    <b>Elegant UI</b>
-                                    <b>Best Support</b>
+                                    <b class="is-visible"> Easy Integration <i class="fa fa-thumbs-up" style="color: white;"></i></b>
+                                    <b>Elegant UI <i class="fa fa-laptop" style="color: white;"></i></b>
+                                    <b>Best Support <i class="fa fa-phone" style="color: white;"></i></b>
                                 </span>
                             </h2>
                             <p>The best blogging application in the market, with maximum support and powerful features that are gonna make blogging a breeze!!</p>

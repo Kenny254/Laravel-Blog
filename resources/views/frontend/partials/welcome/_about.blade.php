@@ -2,16 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <div class="video-img-icon">
-                    <div class="about-bottom-img">
-                        <img src="img/video/2.jpg" alt="">
-                    </div>
-                    <div class="video-icon">
-                        <a class="video-popup" href="https://www.youtube.com/watch?v=ZdJ7zga2yGg">
-                            <i class="ion-ios-play" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
+                <video width="555" height="404" controls style="margin-top: -20px;">
+                  <source src="{{ asset('video/social.mp4') }}" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
             </div>	
 			<div class="col-md-6 col-sm-12">
 				<div class="about-bottom-left clearfix">

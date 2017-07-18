@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>{{ config('app.name') }} - @yield('title')</title>
 
     <!-- CSS Files -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/core/bootstrap.min.css') }}" rel="stylesheet" />
     <!-- Fonts and icons -->
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/core/font-awesome.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/core/custom.css') }}" rel="stylesheet" />
 
     @stack('styles')
 
@@ -49,7 +50,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/smoothScroll.js') }}"></script>
+    <script src="{{ asset('js/core/smoothScroll.js') }}"></script>
     <script>
         $(document).ready(function() {
         jQuery.scrollSpeed(100, 800);

@@ -47,3 +47,7 @@ Route::resource('posts', 'PostsController');
 All these routes point to all static pages of this application
 */
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
