@@ -17,12 +17,7 @@
 ---------------------------------------------------------------------------
 All these routes point to all static pages of this application
 */
-//Route::get('datatables.data', 'PostsController@anyData')->name('datatables.data');
-/*
-Route::group(['prefix' => 'blog'], function () {
-    Route::get('/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
-});
-*/
+
 Route::get('blog', 'BlogController@getIndex')->name('blog.index');
 Route::get('blog/{slug}', 'BlogController@getSingle')->name('blog.single')->where('slug', '[\w\d\-\_]+');
 Route::get('/', 'PagesController@getIndex');
@@ -46,7 +41,6 @@ Route::resource('posts', 'PostsController');
 ---------------------------------------------------------------------------
 All these routes point to all static pages of this application
 */
-
 
 Auth::routes();
 

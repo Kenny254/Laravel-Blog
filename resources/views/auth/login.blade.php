@@ -2,6 +2,16 @@
 
 @section('title', 'Log In')
 
+@push('stylesheets')
+
+	<style>
+		div.icon-links a{
+			padding: 3px;
+		}
+	</style>
+
+@endpush
+
 
 @section('content')
 
@@ -57,6 +67,16 @@
 			        <!-- /.col -->
 		        </div>
 		    </form>
+
+		    <div class="social-auth-links text-center">
+		      <p>- OR -</p>
+		      <div class="icon-links">
+		      	  <a href="#" title="Facebook"><img src="{{ asset('images/social/facebook.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+			      <a href="#" title="Twitter"><img src="{{ asset('images/social/twitter.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+			      <a href="#" title="Github"><img src="{{ asset('images/social/github.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+			      <a href="#" title="Google+"><img src="{{ asset('images/social/google-plus.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+		      </div>
+		    </div>
 
 		    <a href="{{ route('password.request') }}">Forgot your password?</a><br>
 		    <a href="{{ url('/register') }}" class="text-center">Register here</a>
