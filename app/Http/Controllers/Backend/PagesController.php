@@ -12,4 +12,10 @@ class PagesController extends Controller
     	// The main dashboard view
     	return view('backend/pages/index');
     }
+
+    public function getProfile()
+    {
+    	// The main dashboard view
+    	return view('backend/pages/profile');
+    }
 }

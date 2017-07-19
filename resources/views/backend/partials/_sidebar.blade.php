@@ -33,17 +33,7 @@
         <li class="header text-center">QUICK LINKS</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="{{ Request::is('/dashboard' ? "active" : "") }}"><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-user"></i> <span>Profile</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-pencil"></i><span>Edit profile</span></a></li>
-            <li><a href="#"><i class="fa fa-picture-o"></i>Change avatar</a></li>
-          </ul>
-        </li>
+        <li class="{{ Request::is('/profile' ? "active" : "") }}"><a href="{{ url('/profile') }}"><i class="fa fa-eye"></i> <span>View profile</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-sticky-note"></i> <span>Posts</span>
             <span class="pull-right-container">

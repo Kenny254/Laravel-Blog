@@ -32,6 +32,7 @@ Route::get('/', 'PagesController@getIndex');
 All these routes point to all static pages of this application
 */
 
+Route::get('/profile', 'Backend\PagesController@getProfile');
 Route::get('dashboard', 'Backend\PagesController@getIndex');
 Route::resource('posts', 'PostsController');
 
@@ -43,5 +44,8 @@ All these routes point to all static pages of this application
 */
 
 Auth::routes();
+
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');

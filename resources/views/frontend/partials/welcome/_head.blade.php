@@ -52,6 +52,43 @@
 		<!-- responsive CSS
 		============================================ -->
         <link rel="stylesheet" href="{{ asset('css/front/responsive.css') }}">
+
+        <style>
+					.dropdown-menu>li>a {
+					    color: #FFF;
+					    text-decoration: none;
+					    padding-top: 5px;
+					}
+					.dropdown-menu>li>a:hover {
+					   background: transparent;
+					}
+					.dropdown ul.dropdown-menu {
+					    border-radius:1px;
+					    box-shadow:none;
+					    margin-top:20px;
+					    background: #4A90E2;
+					}
+					.dropdown ul.dropdown-menu:before {
+					    content: "";
+					    border-bottom: 10px solid #4A90E2;
+					    border-right: 10px solid transparent;
+					    border-left: 10px solid transparent;
+					    position: absolute;
+					    top: -10px;
+					    right: 16px;
+					    z-index: 10;
+					}
+					.dropdown ul.dropdown-menu:after {
+					    content: "";
+					    border-bottom: 12px solid transparent;
+					    border-right: 12px solid transparent;
+					    border-left: 12px solid transparent;
+					    position: absolute;
+					    top: -12px;
+					    right: 14px;
+					    z-index: 9;
+					}
+        </style>
         
 		<!-- modernizr JS
 		============================================ -->		

@@ -15,19 +15,49 @@
                     <div class="main-menu float-right collapse navbar-collapse" id="main-menu-2">
                         <nav>
                             <ul class="menu one-page">
-                                <li class="active"><a href="text-animator.html#home-area">HOME</a></li>
-                                <li><a href="text-animator.html#about-area">About   </a></li>
-                                <li><a href="text-animator.html#features-area">FEATURES</a></li>
-                                <li><a href="text-animator.html#pricing-area">pricing </a></li>
-                                <li><a href="text-animator.html#review-area">reviews</a></li>
-                                <li><a href="text-animator.html#support-area">support</a></li>
-                                <li><a href="{{ url('blog') }}">Blog </a></li>
+                                <li class="active push-it"><a href="text-animator.html#home-area" class="fancy">HOME</a></li>
+                                <li class="push-it"><a href="text-animator.html#about-area" class="fancy">About</a></li>
+                                <li class="push-it"><a href="text-animator.html#features-area" class="fancy">FEATURES</a></li>
+                                <li class="push-it"><a href="text-animator.html#pricing-area" class="fancy">pricing </a></li>
+                                <li class="push-it"><a href="text-animator.html#review-area" class="fancy">reviews</a></li>
+                                <li class="push-it"><a href="text-animator.html#support-area" class="fancy">support</a></li>
+                                <li class="push-it"><a href="{{ url('blog') }}" class="fancy">Blog </a></li>
 
                                 @if(Auth::guest())
-                                <li><a href="{{ route('login') }}">Login</a></li>
-                                <li><a href="{{ route('register') }}">Register</a></li>
+                                    <li class="push-it"><a href="{{ route('login') }}" class="fancy">Login</a></li>
+                                    <li class="push-it"><a href="{{ route('register') }}" class="fancy">Register</a></li>
                                 @else
-                                <li><a href="{{ url('dashboard') }}">my dashboard </a></li>
+                                    <li class="dropdown push-it">
+                                        <a href="#" class="dropdown-toggle fancy" data-toggle="dropdown" role="button" aria-expanded="false">
+                                            {{ Auth::user()->name }} <span class="caret"></span>
+                                        </a>
+
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ url('/dashboard') }}">My Dashboard</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="{{ url('/profile') }}">My Profile</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="{{ url('/blog') }}">Blog</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                                    Logout 
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    {{ csrf_field() }}
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 @endif
                             </ul>
                         </nav>

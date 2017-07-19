@@ -10,3 +10,4 @@
 <!-- main JS
 ============================================ -->		
 <script src="{{ asset('js/front/main.js') }}"></script>
+

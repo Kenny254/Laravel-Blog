@@ -71,10 +71,10 @@
 		    <div class="social-auth-links text-center">
 		      <p>- OR -</p>
 		      <div class="icon-links">
-		      	  <a href="#" title="Facebook"><img src="{{ asset('images/social/facebook.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+		      	  <a href="{{ url('login/facebook') }}" title="Facebook"><img src="{{ asset('images/social/facebook.png') }}" alt="" style="width: 40px; height: 40px;"></a>
 			      <a href="#" title="Twitter"><img src="{{ asset('images/social/twitter.png') }}" alt="" style="width: 40px; height: 40px;"></a>
-			      <a href="#" title="Github"><img src="{{ asset('images/social/github.png') }}" alt="" style="width: 40px; height: 40px;"></a>
-			      <a href="#" title="Google+"><img src="{{ asset('images/social/google-plus.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+			      <a href="{{ url('login/github') }}" title="Github"><img src="{{ asset('images/social/github.png') }}" alt="" style="width: 40px; height: 40px;"></a>
+			      <a href="{{ url('login/google') }}" title="Google+"><img src="{{ asset('images/social/google-plus.png') }}" alt="" style="width: 40px; height: 40px;"></a>
 		      </div>
 		    </div>
 
