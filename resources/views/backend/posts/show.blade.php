@@ -44,7 +44,7 @@
                 <li><a href="{{ route('blog.single', $post->slug) }}"><i class="fa fa-link"></i>{{ route('blog.single', $post->slug) }}</a></li>
                 <li><a><i class="fa fa-user"></i> By : <span class="pull-right">{{ Auth::user()->name }}</span></a></li>
                 <li><a><i class="fa fa-calendar"></i> Created on : <span class="pull-right">{{ date('M j, Y H:i', strtotime($post->created_at)) }}</span></a></li>
-                <li><a><i class="fa fa-sticky-note"></i> Category : <span class="pull-right">Miscellaneous</span></a></li>
+                <li><a><i class="fa fa-sticky-note"></i> Category : <span class="pull-right label label-success">{{ $post->category->name }}</span></a></li>
               </ul>
             </div>
             <!-- /.box-body -->

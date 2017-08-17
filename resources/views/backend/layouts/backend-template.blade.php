@@ -18,6 +18,8 @@
     <!-- Fonts and icons -->
     <link href="{{ asset('css/core/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/core/ionicons.min.css') }}" rel="stylesheet">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('css/core/select2.min.css') }}">
     <!-- Theme Style -->
     <link href="{{ asset('css/dashboard/AdminLTE.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/dashboard/_all-skins.min.css') }}" rel="stylesheet" />
@@ -85,6 +87,8 @@ desired effect
     
     <!-- App JS -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('js/plugins/select2.full.min.js') }}"></script>
     <!-- Bootstrap Show Password-->
     <script src="{{ asset('js/plugins/bootstrap-show-password.js') }}"></script>
     <!-- Fastclick -->

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 //use Yajra\Datatables\Datatables;
 use App\Post;
+use App\Category;
 
 class PostsController extends Controller
 {
@@ -27,7 +28,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('backend/posts/create');
+        $categories = Category::all();
+        return view('backend/posts/create', compact('categories'));
     }
 
     /**
@@ -42,13 +44,15 @@ class PostsController extends Controller
         $this->validate($request, [
              'title' => 'required|max:255',
              'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-             'body' => 'required|min:200',
+             'category_id' => 'required|integer',
+             'body' => 'required|min:50',
             ]);
         
         // The blog post is valid, store in database...
         $post = new Post;
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
         $post->body = $request->body;
         $post->save();
 
@@ -78,7 +82,13 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('backend/posts/edit', compact('post'));
+        $categories = Category::all();
+        $cats = [];
+        foreach ($categories as $category) 
+        {
+            $cats[$category->id] = $category->name;
+        }
+        return view('backend/posts/edit')->withPost($post)->withCategories($cats);
     }
 
     /**
@@ -96,6 +106,7 @@ class PostsController extends Controller
            // Validate the title and body...
             $this->validate($request, [
                  'title' => 'required|max:255',
+                 'category_id' => 'required|integer',
                  'body' => 'required|min:200',
                 ]); 
         }
@@ -105,6 +116,7 @@ class PostsController extends Controller
             $this->validate($request, [
                  'title' => 'required|max:255',
                  'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+                 'category_id' => 'required|integer',
                  'body' => 'required|min:200',
                 ]);
         }
@@ -113,6 +125,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = $request->title;
         $post->slug = $request->slug;
+        $post->category_id = $request->category_id;
         $post->body = $request->body;
 
         //save into DB

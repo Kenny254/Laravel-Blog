@@ -63,6 +63,12 @@
 		 		   				</div>
 		 		   			</div>
 		 		   			<div class="form-group">
+		 		   				{{ Form::label('category_id', 'Category:',array('class' => 'col-sm-2 control-label')) }}
+		 		   				<div class="col-sm-10">
+		 		   					{{ Form::select('category_id', $categories, null, array('class' => 'form-control select2')) }}
+		 		   				</div>
+		 		   			</div>
+		 		   			<div class="form-group">
 		 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}
 		 		   				<div class="col-sm-10">
 		 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'id' => 'body', 'minlength' => '200')) }}
@@ -88,4 +94,10 @@
 		     document.getElementById("body").value = "";
 		}
 	</script>
+	<script>
+		$(function () {
+			$(".select2").select2();
+		})
+	</script>
+
 @endpush

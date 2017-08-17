@@ -40,9 +40,19 @@
 	 		   				</div>
 	 		   			</div>
 	 		   			<div class="form-group">
+	 		   				<label for="category_id" class="col-sm-2 control-label">Category</label>
+	 		   				<div class="col-sm-10">
+	 		   					<select name="category_id" class="form-control select2" style="width: 100%;">
+					                  @foreach($categories as $category)
+										<option value="{{ $category->id }}">{{ $category->name }}</option>
+					                  @endforeach
+		 		   				</select>
+	 		   				</div>
+	 		   			</div>
+	 		   			<div class="form-group">
 	 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}
 	 		   				<div class="col-sm-10">
-	 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'minlength' => '200')) }}
+	 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'minlength' => '50')) }}
 	 		   				</div>
 	 		   			</div>
 	 		   		</div>
@@ -56,3 +66,13 @@
 		</div>
 	</div>
 @endsection
+
+@push('scripts')
+
+	<script>
+		$(function () {
+			$(".select2").select2();
+		})
+	</script>
+
+@endpush

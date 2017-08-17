@@ -27,7 +27,14 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'slug' => $faker->slug(),
+        'category_id' => $faker->numberBetween($min = 1, $max = 10),
         'body' => $faker->realText($maxNbChars = 500),
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word(),
     ];
 });
 
