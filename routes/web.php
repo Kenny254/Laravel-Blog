@@ -40,6 +40,7 @@ Route::middleware(['role:superadministrator|administrator|editor|author'])->grou
 	Route::resource('users', 'Backend\UsersController');
 	Route::resource('permissions', 'Backend\PermissionsController');
 	Route::resource('roles', 'Backend\RolesController');
+	Route::resource('categories', 'Backend\CategoriesController');
 });
 
 Route::get('profile', 'Backend\PagesController@getProfile');

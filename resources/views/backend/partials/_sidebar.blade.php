@@ -46,6 +46,7 @@
           </ul>
         </li>
         <li class="{{ Request::is('/profile' ? "active" : "") }}"><a href="{{ url('/profile') }}"><i class="fa fa-eye"></i> <span>View profile</span></a></li>
+        <li><a href="{{ route('categories.index') }}"><i class="fa fa-bookmark"></i> <span>Categories</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-sticky-note"></i> <span>Posts</span>
             <span class="pull-right-container">
