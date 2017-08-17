@@ -25,9 +25,9 @@
 
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->sentence($nbWords = 6),
+        'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'slug' => $faker->slug(),
-        'body' => $faker->realText($maxNbChars = 400),
+        'body' => $faker->realText($maxNbChars = 500),
     ];
 });
 

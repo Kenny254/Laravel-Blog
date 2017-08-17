@@ -19,87 +19,102 @@
 @section('content')
 
 	<div class="row">
+
 		<div class="col-md-3">
+            <!-- Profile Image -->
+	        <div class="box box-primary">
+	            <div class="box-body box-profile">
+				    <img class="profile-user-img img-responsive img-circle" src="../images/avatars/{{ Auth::user()->avatar }}" alt="User profile picture" style="border: none;">
 
-         <!-- Profile Image -->
-        <div class="box box-primary">
-            <div class="box-body box-profile">
-			    <img class="profile-user-img img-responsive img-circle" src="{{ asset('images/user-bg.png') }}" alt="User profile picture">
+				        <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
+				        <p class="text-muted text-center">Software Engineer</p>
 
-			        <h3 class="profile-username text-center">Anthony Mutinda</h3>
-			        <p class="text-muted text-center">Software Engineer</p>
+		                <ul class="list-group list-group-unbordered">
+			                <li class="list-group-item">
+				                My Posts <a class="pull-right">1,322</a>
+			                </li>
+			                <li class="list-group-item">
+				                Commented Posts <a class="pull-right">69</a>
+			                </li>
+			                <li class="list-group-item">
+				                Notifications <a class="pull-right">20</a>
+			                </li>
+		                </ul>
 
-	                <ul class="list-group list-group-unbordered">
-		                <li class="list-group-item">
-			                <b>Posts</b> <a class="pull-right">1,322</a>
-		                </li>
-		                <li class="list-group-item">
-			                <b>Commented Posts</b> <a class="pull-right">69</a>
-		                </li>
-		                <li class="list-group-item">
-			                <b>Notifications</b> <a class="pull-right">20</a>
-		                </li>
-	                </ul>
-
-			        <a href="#" class="btn btn-primary btn-block"><b>Send Message</b></a>
-            </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-
-        <!-- About Me Box -->
-        <div class="box box-primary">
-	        <div class="box-header with-border">
-	          <h3 class="box-title">About Me</h3>
+				        <a href="#" class="btn btn-primary btn-block"><b>Send Message</b></a>
+	            </div>
+	            <!-- /.box-body -->
 	        </div>
-			<!-- /.box-header -->
-	        <div class="box-body">
-			    <strong><i class="fa fa-envelope margin-r-5"></i> Email address</strong>
-
-		        <p class="text-muted">
-		           toneymutinda@gmail.com
-		        </p>
-
-			    <hr>
-
-			    <strong><i class="fa fa-calendar margin-r-5"></i> Member Since</strong>
-
-			    <p class="text-muted">23rd June, 2017</p>
-
-			    <hr>
-
-			    <strong><i class="fa fa-pencil margin-r-5"></i> Categories</strong>
-
-		        <p>
-		            <span class="label label-danger">Fashion</span>
-		            <span class="label label-success">Design</span>
-		            <span class="label label-info">Architecture</span>
-		            <span class="label label-warning">Technology</span>
-		        </p>
-
-			    <hr>
-
-			    <strong><i class="fa fa-heart margin-r-5"></i> Popular Post</strong>
-
-			    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
-	        </div>
-	        <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-
+	        <!-- /.box -->
         </div>
 
-        <div class="col-md-9">
-            <div class="nav-tabs-custom">
-	            <ul class="nav nav-tabs">
-		            <li><a href="#timeline" data-toggle="tab">Timeline</a></li>
-		            <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
-	            </ul>
+        <div class="col-md-5">
+        	<!-- About Me -->
+        	<div class="box box-primary">
+        		<div class="box-header with-border">
+        			<h3 class="box-title">About Me</h3>
+        		</div>
+        		<div class="box-body">
+        			<strong><i class="fa fa-envelope margin-r-5"></i> Email address</strong>
+        			<p class="text-muted">
+        				{{ Auth::user()->email }}
+        			</p>
+					<hr>
+        			<strong><i class="fa fa-calendar margin-r-5"></i> Member Since</strong>
+        			<p class="text-muted">
+        				{{ Auth::user()->created_at }}
+        			</p>
+					<hr>
+        			<strong><i class="fa fa-pencil margin-r-5"></i> Categories</strong>
+        			<p>
+        				<span class="label label-danger">Fashion</span>
+			            <span class="label label-success">Design</span>
+			            <span class="label label-info">Architecture</span>
+			            <span class="label label-warning">Technology</span>
+        			</p>
+					<hr>
+        			<strong><i class="fa fa-sticky-note"></i> Last post</strong>
+        			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quas nihil, atque doloremque consectetur error ea commodi, ipsam qui. Architecto commodi dolor quasi? Rem incidunt, doloremque error dolorum earum nobis.</p>
+        		</div>
+        	</div>
+        </div>
 
-	            <div class="tab-content">	              
-		            <div class="tab-pane" id="timeline">
-	                    <!-- The timeline -->
-		                <ul class="timeline timeline-inverse">
+        <div class="col-md-4">
+        	<div class="box box-primary">
+        		<div class="box-header with-border">
+        			<h3 class="box-title">Change Avatar</h3>
+        		</div>
+        		<div class="box-body">
+        			<form class="form-horizontal" action="{{ route('image.upload') }}" method="POST" enctype="multipart/form-data">
+		            	{{ csrf_field() }}
+		                <div class="form-group">
+			                <label for="avatar" class="col-sm-2 control-label">Upload</label>
+
+			                <div class="col-sm-10">
+				                <input type="file" class="form-control" name="avatar" id="avatar" placeholder="Choose avatar">
+			                </div>
+		                </div>
+		                <div class="form-group">
+			                <div class="col-sm-offset-2 col-sm-10">
+				                <button type="submit" class="btn btn-success">Submit</button>
+			                </div>
+		                </div>
+		            </form>
+        		</div>
+        	</div>
+        </div>
+        
+	</div><!-- /.main row -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="box box-primary">
+				<div class="box-header with-border">
+					<h3 class="box-title">My Activity Feed</h3>
+				</div>
+
+				<div class="box-body">
+					<ul class="timeline timeline-inverse">
 			                <!-- timeline time label -->
 			                <li class="time-label">
 			                    <span class="bg-red">
@@ -190,62 +205,9 @@
 			                    <i class="fa fa-clock-o bg-gray"></i>
 			                </li>
 		                </ul>
-	                </div>
-	                <!-- /.tab-pane -->
-
-				    <!-- Update User Details Pane -->		
-	                <div class="tab-pane" id="settings">
-			            <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
-			            	{{ csrf_field() }}
-				            <div class="form-group">
-				                <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-				                <div class="col-sm-10">
-					                <input type="email" class="form-control" id="inputName" placeholder="Name">
-				                </div>
-				            </div>
-			                <div class="form-group">
-				                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-				                <div class="col-sm-10">
-					                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-				                </div>
-			                </div>
-			                <div class="form-group">
-				                <label for="inputName" class="col-sm-2 control-label">Password</label>
-
-				                <div class="col-sm-10">
-					                <input type="password" class="form-control" id="inputName" placeholder="Password">
-				                </div>
-			                </div>
-			                <div class="form-group">
-				                <label for="inputName" class="col-sm-2 control-label">Confirm Password</label>
-
-				                <div class="col-sm-10">
-					                <input type="password" class="form-control" id="inputName" placeholder="Confirm Password">
-				                </div>
-			                </div>
-			                <div class="form-group">
-				                <label for="avatar" class="col-sm-2 control-label">Upload Avatar</label>
-
-				                <div class="col-sm-10">
-					                <input type="file" class="form-control" name="image" id="image" placeholder="Choose avatar">
-				                </div>
-			                </div>
-			                <div class="form-group">
-				                <div class="col-sm-offset-2 col-sm-10">
-					                <button type="submit" class="btn btn-success">Submit</button>
-				                </div>
-			                </div>
-			            </form>
-	                </div>
-	                <!-- /.tab-pane -->
-	            </div>
-                <!-- /.tab-content -->
-             </div>
-            <!-- /.nav-tabs-custom -->
-        </div>
-        <!-- /.col -->
-	</div><!-- /.main row -->
+				</div>
+			</div>
+		</div>
+	</div><!-- /.timeline row -->
 	
 @endsection

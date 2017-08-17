@@ -32,9 +32,9 @@
             </div>
             <div class="box-body no-padding">
               <ul class="nav nav-pills nav-stacked">
-                <li class="disabled"><a href="#"><i class="fa fa-user"></i> Posted by Anthony Mutinda</a></li>
-                <li class="disabled"><a href="#"><i class="fa fa-pencil"></i> Created on {{ date('M j, Y H:i', strtotime($post->created_at)) }}</a></li>
-                <li class="disabled"><a href="#"><i class="fa fa-sticky-note"></i> Last updated on {{ date('M j, Y H:i', strtotime($post->updated_at)) }}</a></li>
+                <li><a><i class="fa fa-user"></i> Posted by : <span class="pull-right">{{ Auth::user()->name }}</span></a></li>
+                <li><a><i class="fa fa-calendar"></i> Created on : <span class="pull-right">{{ date('M j, Y H:i', strtotime($post->created_at)) }}</span></a></li>
+                <li><a><i class="fa fa-pencil"></i> Last updated : <span class="pull-right">{{ date('M j, Y H:i', strtotime($post->updated_at)) }}</span></a></li>
               </ul>
             </div>
             <!-- /.box-body -->

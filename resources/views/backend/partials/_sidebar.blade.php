@@ -7,10 +7,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/images/avatars/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>{{ Auth::user()->name }}</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -33,6 +33,18 @@
         <li class="header text-center">QUICK LINKS</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="{{ Request::is('/dashboard' ? "active" : "") }}"><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li class=""><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-th-large"></i> <span>Access Control</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('roles.index') }}"><i class="fa fa-user"></i><span>Roles</span></a></li>
+            <li><a href="{{ route('permissions.index') }}"><i class="fa fa-unlock-alt"></i>Permissions</a></li>
+          </ul>
+        </li>
         <li class="{{ Request::is('/profile' ? "active" : "") }}"><a href="{{ url('/profile') }}"><i class="fa fa-eye"></i> <span>View profile</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-sticky-note"></i> <span>Posts</span>

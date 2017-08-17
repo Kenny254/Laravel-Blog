@@ -23,4 +23,34 @@
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<strong>Success:</strong> {{ Session::get('delete-post') }}
 	</div>
+@elseif (Session::has('new-user'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('new-user') }}
+	</div>
+@elseif (Session::has('update-user'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('update-user') }}
+	</div>
+@elseif (Session::has('image-upload'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('image-upload') }}
+	</div>
+@elseif (Session::has('update-role'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('update-role') }}
+	</div>
+@elseif (Session::has('new-role'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('new-role') }}
+	</div>
+@elseif (Session::has('delete-role'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('delete-role') }}
+	</div>
 @endif

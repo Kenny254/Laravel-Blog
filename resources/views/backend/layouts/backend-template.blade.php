@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}">
     <title>{{ config('app.name') }} - @yield('title')</title>
@@ -50,7 +53,7 @@ desired effect
 -->
   
   <body class="hold-transition skin-blue sidebar-mini fixed">
-    <div class="wrapper">
+    <div class="wrapper" id="app">
 
       <!-- Navbar -->
       @include('backend.partials._navbar')
@@ -80,11 +83,10 @@ desired effect
 
     </div> <!-- /.wrapper -->
     
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
-    <!-- Bootstrap -->
-    <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
+    <!-- App JS -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- Bootstrap Show Password-->
+    <script src="{{ asset('js/plugins/bootstrap-show-password.js') }}"></script>
     <!-- Fastclick -->
     <script src="{{ asset('js/plugins/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
