@@ -68,4 +68,19 @@
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<strong>Success:</strong> {{ Session::get('delete-category') }}
 	</div>
+@elseif (Session::has('new-tag'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('new-tag') }}
+	</div>
+@elseif (Session::has('update-tag'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('update-tag') }}
+	</div>
+@elseif (Session::has('delete-tag'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('delete-tag') }}
+	</div>
 @endif

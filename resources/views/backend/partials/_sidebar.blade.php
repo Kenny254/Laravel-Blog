@@ -60,7 +60,8 @@
             <li><a href="#"><i class="fa fa-pie-chart"></i>Summary</a></li>
           </ul>
         </li>
-        <li><a href="#"><i class="fa fa-envelope"></i> <span>Send Message</span></a></li>
+        <li><a href="{{ route('tags.index') }}"><i class="fa fa-tags"></i> <span>Tags</span></a></li>
+        <li><a href="#"><i class="fa fa-comments"></i> <span>Comments</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-gears"></i> <span>Settings</span>
             <span class="pull-right-container">

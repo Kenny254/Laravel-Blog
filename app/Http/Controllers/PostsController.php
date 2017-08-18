@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 //use Yajra\Datatables\Datatables;
 use App\Post;
 use App\Category;
+use App\Tag;
 
 class PostsController extends Controller
 {
@@ -28,8 +29,9 @@ class PostsController extends Controller
      */
     public function create()
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('backend/posts/create', compact('categories'));
+        return view('backend/posts/create', compact('categories', 'tags'));
     }
 
     /**
@@ -40,6 +42,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+
         // Validate the request...
         $this->validate($request, [
              'title' => 'required|max:255',
@@ -54,7 +57,10 @@ class PostsController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = $request->body;
+
         $post->save();
+
+        $post->tags()->sync($request->tags, false);
 
         //Redirect users with success message
         Session::flash('new-post', 'Post created successfully!');
@@ -88,7 +94,13 @@ class PostsController extends Controller
         {
             $cats[$category->id] = $category->name;
         }
-        return view('backend/posts/edit')->withPost($post)->withCategories($cats);
+        $tags = Tag::all();
+        $tags2 = [];
+        foreach ($tags as $tag) 
+        {
+            $tags2[$tag->id] = $tag->name;
+        }
+        return view('backend/posts/edit')->withPost($post)->withCategories($cats)->withTags($tags2);
     }
 
     /**
@@ -107,7 +119,7 @@ class PostsController extends Controller
             $this->validate($request, [
                  'title' => 'required|max:255',
                  'category_id' => 'required|integer',
-                 'body' => 'required|min:200',
+                 'body' => 'required',
                 ]); 
         }
         else
@@ -117,7 +129,7 @@ class PostsController extends Controller
                  'title' => 'required|max:255',
                  'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
                  'category_id' => 'required|integer',
-                 'body' => 'required|min:200',
+                 'body' => 'required',
                 ]);
         }
         
@@ -130,6 +142,12 @@ class PostsController extends Controller
 
         //save into DB
         $post->save();
+
+        if (isset($request->tags)) {
+             $post->tags()->sync($request->tags);
+        } else {
+             $post->tags()->sync(array());
+        }
         
         //Flash Message
         Session::flash('update-post', 'Your post was updated successfully!');
@@ -149,6 +167,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+        $post->tags()->detach();
+        $post->category()->detach();
+
         $post->delete();
         
         Session::flash('delete-post', 'The post was successfully deleted!');

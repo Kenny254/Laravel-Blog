@@ -69,9 +69,15 @@
 		 		   				</div>
 		 		   			</div>
 		 		   			<div class="form-group">
+		 		   				{{ Form::label('tags', 'Tag(s):',array('class' => 'col-sm-2 control-label')) }}
+		 		   				<div class="col-sm-10">
+		 		   					{{ Form::select('tags[]', $tags, null, array('class' => 'form-control select2', 'multiple' => 'multiple')) }}
+		 		   				</div>
+		 		   			</div>
+		 		   			<div class="form-group">
 		 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}
 		 		   				<div class="col-sm-10">
-		 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'id' => 'body', 'minlength' => '200')) }}
+		 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'id' => 'body')) }}
 		 		   				</div>
 		 		   			</div>
 						</div>
@@ -97,6 +103,7 @@
 	<script>
 		$(function () {
 			$(".select2").select2();
+			$(".select2").select2().val({!! json_encode($post->tags()->allRelatedIds()) !!}).trigger("change");
 		})
 	</script>
 

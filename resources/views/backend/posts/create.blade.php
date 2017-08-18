@@ -50,6 +50,16 @@
 	 		   				</div>
 	 		   			</div>
 	 		   			<div class="form-group">
+	 		   				<label for="tags" class="col-sm-2 control-label">Tag(s)</label>
+			                <div class="col-sm-10">
+			                	<select name="tags[]" class="form-control select2" multiple="multiple" data-placeholder="Select a Tag">
+				                      @foreach($tags as $tag)
+										<option value="{{ $tag->id }}">{{ $tag->name }}</option>
+					                  @endforeach
+				                </select>
+			                </div>
+	 		   			</div>
+	 		   			<div class="form-group">
 	 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}
 	 		   				<div class="col-sm-10">
 	 		   					{{ Form::textarea('body', null, array('class' => 'form-control', 'placeholder' => 'Say something nice..', 'minlength' => '50')) }}

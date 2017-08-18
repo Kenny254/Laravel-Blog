@@ -64,21 +64,9 @@
 	<div class="widget">
 		<div class="recent-posts-widget tags">
 			<h3 class="title-sidebar">Tags</h3>
-			<a href="" class="btn btn-sm btn-info">adventure</a>
-			<a href="" class="btn btn-sm btn-info">blog</a>
-			<a href="" class="btn btn-sm btn-info">fashion</a>
-			<a href="" class="btn btn-sm btn-info">latest</a>
-			<a href="" class="btn btn-sm btn-info">design</a>
-			<a href="" class="btn btn-sm btn-info">most popular</a>
-			<a href="" class="btn btn-sm btn-info">with comments</a>
-			<a href="" class="btn btn-sm btn-info">liked</a>
-			<a href="" class="btn btn-sm btn-info">tech</a>
-			<a href="" class="btn btn-sm btn-info">unique</a>
-			<a href="" class="btn btn-sm btn-info">mine</a>
-			<a href="" class="btn btn-sm btn-info">nature</a>
-			<a href="" class="btn btn-sm btn-info">with love</a>
-			<a href="" class="btn btn-sm btn-info">food</a>
-			<a href="" class="btn btn-sm btn-info">education</a>
-		</div> <!-- ./end recent-posts-widget -->
+			@foreach($tags as $tag)
+				<a href="" class="btn btn-sm btn-info">{{ $tag->name }}</a>
+			@endforeach
+		</div> <!-- ./end tags-widget -->
 	</div> <!--./end widget -->
 			
