@@ -71,7 +71,8 @@
         								<td>{{ date('M j, Y H:i', strtotime($user->updated_at)) }}</td>
         								<td>
         									<a href="{{ route('users.show', $user->id) }}" class="btn btn-xs btn-info" title="View"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp; &nbsp;
-        									<a href="{{ route('users.edit', $user->id) }}" class="btn btn-xs btn-success" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp; &nbsp;								
+        									<a href="{{ route('users.edit', $user->id) }}" class="btn btn-xs btn-success" title="Edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp; &nbsp;	
+                          <a href="" class="btn btn-xs btn-primary" title="Email"><i class="fa fa-envelope"></i></a> &nbsp; &nbsp;							
         									{!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'DELETE', 'style' => 'display: inline-block']) !!}								   
         									   {{Form::button('<i class="fa fa-trash"></i>', array('type' => 'submit', 'class' => 'btn btn-xs btn-danger', 'title' => 'Delete'))}}
         								  {!! Form::close() !!}	

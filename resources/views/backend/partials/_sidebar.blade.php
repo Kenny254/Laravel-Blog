@@ -33,7 +33,6 @@
         <li class="header text-center">QUICK LINKS</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="{{ Request::is('/dashboard' ? "active" : "") }}"><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class=""><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-th-large"></i> <span>Access Control</span>
             <span class="pull-right-container">
@@ -41,6 +40,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li class=""><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a></li>
             <li><a href="{{ route('roles.index') }}"><i class="fa fa-user"></i><span>Roles</span></a></li>
             <li><a href="{{ route('permissions.index') }}"><i class="fa fa-unlock-alt"></i>Permissions</a></li>
           </ul>
@@ -54,25 +54,14 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('posts.create') }}"><i class="fa fa-plus"></i><span>New post</span></a></li>
             <li><a href="{{ route('posts.index') }}"><i class="fa fa-briefcase"></i>My Posts</a></li>
-            <li><a href="#"><i class="fa fa-thumbs-up"></i>Liked Posts</a></li>
-            <li><a href="#"><i class="fa fa-pie-chart"></i>Summary</a></li>
+            <li><a href="#"><i class="fa fa-comments"></i>My Commented Posts</a></li>
           </ul>
         </li>
         <li><a href="{{ route('tags.index') }}"><i class="fa fa-tags"></i> <span>Tags</span></a></li>
         <li><a href="#"><i class="fa fa-comments"></i> <span>Comments</span></a></li>
-        <li class="treeview">
-          <a href="#"><i class="fa fa-gears"></i> <span>Settings</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-home"></i>Go to frontend</a></li>
-            <li><a href="#"><i class="fa fa-sign-out"></i><span>Logout</span></a></li>
-          </ul>
-        </li>
+        <li><a href="{{ route('emails.index') }}"><i class="fa fa-envelope"></i> <span>Mailbox</span></a></li>
+        
       </ul>
       <!-- /.sidebar-menu -->
     </section>

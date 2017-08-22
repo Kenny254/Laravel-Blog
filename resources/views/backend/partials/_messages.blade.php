@@ -83,4 +83,14 @@
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<strong>Success:</strong> {{ Session::get('delete-tag') }}
 	</div>
+@elseif (Session::has('send-mail'))
+	<div class="alert alert-info alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('send-mail') }}
+	</div>
+@elseif (Session::has('delete-mail'))
+	<div class="alert alert-info alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('delete-mail') }}
+	</div>
 @endif

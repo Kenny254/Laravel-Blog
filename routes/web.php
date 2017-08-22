@@ -42,10 +42,13 @@ Route::middleware(['role:superadministrator|administrator|editor|author'])->grou
 	Route::resource('roles', 'Backend\RolesController');
 	Route::resource('categories', 'Backend\CategoriesController');
 	Route::resource('tags', 'Backend\TagsController');
+	Route::resource('emails', 'Backend\EmailsController');
+	Route::get('sent', 'Backend\EmailsController@outbox')->name('emails.outbox');
 });
 
 Route::get('profile', 'Backend\PagesController@getProfile');
 Route::post('profile', 'Backend\UsersController@changeAvatar')->name('image.upload');
+
 
 
 /*
