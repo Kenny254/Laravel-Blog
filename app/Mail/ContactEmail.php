@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Auth;
 
-class ContactEmail extends Mailable
+class ContactEmail extends Mailable 
 {
     use Queueable, SerializesModels;
 

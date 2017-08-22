@@ -49,15 +49,13 @@
 	<div class="widget">
 		<div class="recent-posts-widget">
 			<h3 class="title-sidebar">Categories</h3>
-			<ul class="nav nav-stacked">
-				<li><a href="">Lifestyle <span class="badge yellow pull-right">4</span></a></li>
-				<li><a href="">Fashion <span class="badge light-blue pull-right">18</span></a></li>
-				<li><a href="">Nature <span class="badge green pull-right">9</span></a></li>
-				<li><a href="">Food <span class="badge red pull-right">1</span></a></li>
-				<li><a href="">Political <span class="badge pink pull-right">0</span></a></li>
-				<li><a href="">Economics <span class="badge deep-blue pull-right">2</span></a></li>
-				<li><a href="">Technology <span class="badge pull-right">10</span></a></li>
-			</ul>
+			@if(count($categories) > 0)
+				<ul class="nav nav-stacked">
+				@foreach($categories as $category)
+						<li><a href="">{{ $category->name }} <span class="badge default pull-right">{{ $category->posts()->count() }}</span></a></li>
+				@endforeach
+				</ul>
+			@endif
 		</div> <!-- ./end recent-posts-widget -->
 	</div> <!--./end widget -->
 

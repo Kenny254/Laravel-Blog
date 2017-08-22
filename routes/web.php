@@ -44,6 +44,8 @@ Route::middleware(['role:superadministrator|administrator|editor|author'])->grou
 	Route::resource('tags', 'Backend\TagsController');
 	Route::resource('emails', 'Backend\EmailsController');
 	Route::get('sent', 'Backend\EmailsController@outbox')->name('emails.outbox');
+	//Route::resource('comments', 'CommentsController');
+	Route::post('comments/{post_id}', 'CommentsController@store')->name('comments.store');
 });
 
 Route::get('profile', 'Backend\PagesController@getProfile');

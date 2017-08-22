@@ -93,4 +93,9 @@
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<strong>Success:</strong> {{ Session::get('delete-mail') }}
 	</div>
+@elseif (Session::has('new-comment'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('new-comment') }}
+	</div>
 @endif
