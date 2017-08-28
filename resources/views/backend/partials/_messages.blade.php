@@ -98,4 +98,14 @@
 		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		<strong>Success:</strong> {{ Session::get('new-comment') }}
 	</div>
+@elseif (Session::has('update-comment'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('update-comment') }}
+	</div>
+@elseif (Session::has('delete-comment'))
+	<div class="alert alert-success alert-dismissable">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		<strong>Success:</strong> {{ Session::get('delete-comment') }}
+	</div>
 @endif

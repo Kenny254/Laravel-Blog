@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:200,400,700');
 /* 
 ===========================================================
 
@@ -6,9 +7,11 @@
 
 ===========================================================
 */
-
+*{
+    margin: 0;
+}
 body{
-	font-family: 'Source Sans Pro', Georgia;
+	font-family: 'Titillium Web', sans-serif;
     font-size: 15px;
 }
 article,aside,details,figcaption,figure,footer,header,main,nav,section {
@@ -23,7 +26,7 @@ a {
     transition: 300ms;
 }
 a:hover, a:focus {
-    color: #68c3a3;
+    color: #5BC0DE;
     text-decoration: none;
 }
 input{
@@ -118,8 +121,8 @@ input:focus{
 */
 
 .entry-title{
-	color: #333;
-	font-weight: 400;
+	color: #081F2C;
+	font-weight: 600;
 	font-size: 24px;
 }
 div.caption{
@@ -130,7 +133,152 @@ div.caption{
     border-radius: 0 !important;
     color: aqua !important;
 }
+.from-blog{
+    padding: 0;
+    margin: 0;
+}
+div.post-thumb{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+div.post-thumb:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.index-category a{
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #5BC0DE;
+}
+.index-title{
+    font-size: 18px;
+    font-weight: bold;
+}
+.index-comments{
+    font-size: 12px;
+    color: #999;
+}
+.btn.btn-flat{
+    border-radius: 0 !important;
+}
+/* 
+===========================================================
 
+            READ SINGLE PAGE
+
+===========================================================
+*/
+.post-title{
+    color: #081F2C;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: uppercase;
+    padding: 20px !important;
+    margin: 0;
+}
+.author{
+    color: #081F2C;
+    padding: 20px !important;
+    margin: 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+.section-separator{
+    width: 95%;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+.action-bar{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 20px !important;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.separator{
+    font-weight: 200;
+}
+.time{
+    color: black;
+    line-height: 32px;
+    font-weight: normal;
+}
+.category{
+    padding-top: 10px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 10px !important;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+}
+.thumbnail img{
+    width: auto !important;
+    height: 450px !important;
+    margin: 0 auto 1em auto; /*Center the image*/
+}
+div.caption{
+    padding: 20px !important;
+    font-size: 16px;
+    line-height: 22px;
+}
+.similar-category-title{
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 22px;
+}
+.similar-category-posts{
+    font-size: 18px;
+    line-height: 22px;
+}
+.similar-category-posts li{
+    padding: 10px;
+}
+.comment{
+    margin-bottom: 30px;
+}
+.comment-avatar{
+    height: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
+.comment-form{
+    margin-left: -35px;
+}
+.author-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float: left;
+}
+.author-name{
+    float: left;
+    margin-left: 15px;
+}
+.author-name>h4{
+    margin: 5px 0px 0px ;
+}
+.name{
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 700;
+}
+.date{
+    font-size: 12px;
+    color: #999;
+    font-style: normal;
+    line-height: 20px;
+}
+.comment-body{
+    clear: both;
+    margin-left: 65px;
+}
+.comment-section{
+    height: 400px;
+    overflow-y: scroll;
+}
 /* 
 ===========================================================
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\Post;
+use Auth;
 use Illuminate\Support\Facades\Session;
 
 class CommentsController extends Controller
@@ -16,7 +17,7 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -38,16 +39,14 @@ class CommentsController extends Controller
     public function store(Request $request, $post_id)
     {
         $this->validate($request, [
-                'name' => 'required|max:255',
-                'email' => 'required|email|max:255',
                 'comment' => 'required|max:2000'
             ]);
 
         $post = Post::find($post_id);
 
         $comment = new Comment;
-        $comment->name = $request->name;
-        $comment->email = $request->email;
+        $comment->name = Auth::user()->name;
+        $comment->email = Auth::user()->email;
         $comment->comment = $request->comment;
         $comment->approved = true;
         $comment->post()->associate($post);
@@ -66,7 +65,8 @@ class CommentsController extends Controller
      */
     public function show($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('backend/comments/show', compact('comment'));
     }
 
     /**
@@ -77,7 +77,8 @@ class CommentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('backend/comments/edit', compact('comment'));
     }
 
     /**
@@ -89,7 +90,16 @@ class CommentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+                'comment' => 'required|max:2000'
+            ]);
+
+        $comment = Comment::find($id);
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        Session::flash('update-comment', 'Your comment has been updated successfully');
+        return redirect()->route('posts.show', $comment->post->id);
     }
 
     /**
@@ -100,6 +110,11 @@ class CommentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comment = Comment::find($id);
+
+        $comment->delete();
+        
+        Session::flash('delete-comment', 'The comment was successfully deleted!');
+        return redirect()->back();
     }
 }

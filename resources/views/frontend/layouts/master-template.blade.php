@@ -28,42 +28,34 @@
   </head>
   
   <body style="background-color: #F2F2F2">
-
-    <!-- Default Navbar -->
-    @include('frontend.partials._navbar')
-    <!-- Header -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-               @yield('content') 
+      <div class="wrapper">
+          <!-- Default Navbar -->
+        @include('frontend.partials._navbar')
+        <!-- Header -->
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-8">
+                   @yield('content') 
+                </div>
+                <div class="col-md-4">
+                    @include('frontend.partials._sidebar')
+                </div>  
             </div>
-            <div class="col-md-4">
-                @include('frontend.partials._sidebar')
-            </div>  
+
+            <!-- footer -->
+            @include('frontend.partials._footer')
         </div>
 
-        <!-- footer -->
-        @include('frontend.partials._footer')
-    </div>
+      </div>
+   
     
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('js/core/jquery.3.2.1.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
     <script src="{{ asset('js/core/smoothScroll.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-        jQuery.scrollSpeed(100, 800);
-    });
-    </script>
-    <script>
-        // Add slideDown animation to Bootstrap dropdown on hover.
-        $('.navbar .dropdown').hover(function() {
-          $(this).find('.dropdown-menu').first().stop(true, true).delay(250).slideDown();
-        }, function() {
-          $(this).find('.dropdown-menu').first().stop(true, true).delay(100).slideUp()
-        });
-    </script>
+    <script src="{{ asset('js/blog/custom.js') }}"></script>
     
     @stack('scripts')
     

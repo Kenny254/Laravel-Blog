@@ -5,34 +5,25 @@
 @section('content')
    
     <div class="widget">
-		<h3 class="text-center" style="font-weight: bold; text-transform: uppercase;">From the blog</h3>
+		<h3 class="text-center from-blog" style="font-weight: bold; text-transform: uppercase;">From the blog</h3>
 	</div> <!--./end widget -->	
 
-    @foreach($posts as $post)
-
-	<article>
-      	<div class="thumbnail">
-      		  <!-- Image for each post -->
-	      	  <img src="{{ asset('images/phone.jpg') }}" alt="...">
-      		  <!-- Caption for post -->
-		      <div class="caption">
-			        <h2 class="entry-title">
-			            <a href="" rel="bookmark">{{ $post->title }}</a>
-			        </h2> <!-- //.entry-title -->
-			        <p class="author" style="color: #9EABB3;">
-			        	By Anthony Mutinda | {{ date('M j, Y H:i', strtotime($post->created_at)) }} | Nature
-			        </p>
-			        <p class="text-justify">{{ substr($post->body, 0, 200) }}{{ strlen($post->body) > 200 ? "..." : "" }}</p> <!-- post body --><br>
-			        <p><a href="{{ route('blog.single', $post->slug) }}" class="btn btn-info" role="button">Read more</a></p>
-		      </div>
-      	</div>
-    </article>
-
-    @endforeach
-	
-
-    	<div class="text-center">
-	    	{!! $posts->links() !!}
+    @foreach ($posts->chunk(3) as $chunk)
+	    <div class="row is-flex">
+	        @foreach ($chunk as $post)
+	            <div class="col-xs-4">
+	            	<a href="{{ route('blog.single', $post->slug) }}">
+	            		<div class="thumbnail post-thumb">	            		
+            			<img src="{{ asset('images/wolf.jpg') }}" alt="" style="height: 193.8px !important;">
+            			<h5 class="index-category"><a href="">{{ $post->category->name }}</a></h5>
+            			<h5 class="index-title text-justify">{{ $post->title }}</h5>
+	          			<p class="index-comments">{{ $post->comments()->count() }} comments / {{ date('M j, Y', strtotime($post->created_at)) }}</p>
+	            	</div>
+	            	</a>
+	            </div>
+	        @endforeach
 	    </div>
+	@endforeach
+	
 			
 @endsection

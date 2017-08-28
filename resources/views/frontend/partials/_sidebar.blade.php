@@ -30,11 +30,11 @@
 
 	<div class="widget">
 		<div class="recent-posts-widget">
-			<h3 class="title-sidebar">From the blog</h3>
+			<h3 class="title-sidebar">Latest from the blog</h3>
 			@if(count($posts) > 0)
 				<ul class="nav nav-stacked">
-				  @foreach($posts as $post)
-					<li><a href="{{ route('blog.single', $post->slug) }}"><img src="{{ asset('images/blogging.png') }}" alt="" style="width: 18px; height: 18px;"> {{ $post->title }}</a></li>
+				  @foreach($latest as $recent)
+					<li><a href="{{ route('blog.single', $recent->slug) }}"><img src="{{ asset('images/blogging.png') }}" alt="" style="width: 18px; height: 18px;"> {{ $recent->title }}</a></li>
 					<hr style="display: inline;">
 				  @endforeach
 				</ul>
