@@ -12,7 +12,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
         "santigarcor/laratrust": "3.0.*",
-        "yajra/laravel-datatables-oracle": "^7.0"
+        "mews/purifier": "~2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

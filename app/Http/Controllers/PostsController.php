@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-//use Yajra\Datatables\Datatables;
+use Purifier;
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -56,7 +56,7 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
 
         $post->save();
 
@@ -138,7 +138,7 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body = $request->body;
+        $post->body = Purifier::clean($request->body);
 
         //save into DB
         $post->save();
@@ -176,3 +176,5 @@ class PostsController extends Controller
         return redirect()->route('posts.index');
     }
 }
+
+

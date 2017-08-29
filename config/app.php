@@ -170,8 +170,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
-        Yajra\Datatables\DatatablesServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Mews\Purifier\PurifierServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,12 +230,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Laratrust' => Laratrust\LaratrustFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
     ],
 
 ];
