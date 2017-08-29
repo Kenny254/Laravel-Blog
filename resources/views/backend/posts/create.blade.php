@@ -2,6 +2,17 @@
 
 @section('title', 'New Post')
 
+@push('styles')
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  	<script>
+	  	tinymce.init({ 
+	  		selector:'textarea',
+	  		plugins : 'advlist autolink link image lists charmap',
+	  		menubar : false
+	  	});
+  	</script>
+@endpush
+
 @section('content-header')
 	<section class="content-header">
 	      <h1>
@@ -18,7 +29,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-1">
 			<div class="box box-info">
 				<div class="box-header with-header">
 					<h3 class="box-title">Create a new post</h3>

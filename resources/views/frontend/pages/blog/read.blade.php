@@ -47,9 +47,6 @@
     </article><br>
 
      <div class="widget">
-     	<h2 class="entry-title" style="margin: 0;">
-	  		TAGS
-	  	</h2>
      	<p>
         	@if($post->tags()->count() > 0)
 	        	Tags: 
