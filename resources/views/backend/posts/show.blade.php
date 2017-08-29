@@ -83,7 +83,7 @@
 					</div>
 					<!-- /. mailbox-controls -->
 					<div class="mailbox-read-message">
-						<p class="text-justify">{{ $post->body }}</p>
+						<p class="text-justify">{!! $post->body !!}</p>
 					</div>
 				</div>
 				<div class="box-footer">

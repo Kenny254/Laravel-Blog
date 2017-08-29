@@ -29,7 +29,7 @@
       		</div>
       		<img src="{{ asset('images/wolf.jpg') }}" alt="">
       		<div class="caption">
-      			<p class="text-justify">{{ $post->body }}</p> <br>
+      			<p class="text-justify">{!! $post->body !!}</p> <br>
       			<div class="similar-category">
       				<hr class="">
 	      			<h4 class="similar-category-title">RELATED</h4>
@@ -82,7 +82,7 @@
 			@endif
 		  	<hr>
 
-		  	<div class="row comment-section" id="comments">
+		  	<div class="row {{ $post->comments()->count() > 0 ? "comment-section" : "" }}" id="comments">
 		  		<div class="col-md-12">
 		  			<h4 class="comments-number">{{ $post->comments()->count() }} @if($post->comments()->count() == 1) comment @else comments @endif</h4>
 		  			@foreach($post->comments as $comment)

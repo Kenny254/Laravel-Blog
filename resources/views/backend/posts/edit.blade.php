@@ -2,6 +2,17 @@
 
 @section('title', 'Edit this post')
 
+@push('styles')
+	<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  	<script>
+	  	tinymce.init({ 
+	  		selector:'textarea',
+	  		plugins : 'advlist autolink link image lists charmap',
+	  		menubar : false
+	  	});
+  	</script>
+@endpush
+
 @section('content-header')
 	<section class="content-header">
 	      <h1>
