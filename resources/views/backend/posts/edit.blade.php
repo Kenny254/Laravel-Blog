@@ -54,7 +54,7 @@
 		</div>
 
 		<div class="col-md-9">
-			{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT','class' => 'form-horizontal']) !!}
+			{!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT','class' => 'form-horizontal', 'files' => true]) !!}
 				<div class="box box-info">
 					<div class="box-header with-border">
 						<h3 class="box-title">Edit Post</h3>
@@ -84,6 +84,12 @@
 		 		   				<div class="col-sm-10">
 		 		   					{{ Form::select('tags[]', $tags, null, array('class' => 'form-control select2', 'multiple' => 'multiple')) }}
 		 		   				</div>
+		 		   			</div>
+		 		   			<div class="form-group">
+		 		   				<label for="image" class="col-sm-2 control-label">Image</label>
+				                <div class="col-sm-10">
+				                	<input type="file" name="image" class="form-control">
+				                </div>
 		 		   			</div>
 		 		   			<div class="form-group">
 		 		   				{{ Form::label('body', 'Body:', array('class' => 'col-sm-2 control-label')) }}

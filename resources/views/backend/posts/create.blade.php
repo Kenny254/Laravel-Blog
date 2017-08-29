@@ -36,7 +36,7 @@
 				</div>
 				<!-- /.box-header -->
 				<!-- Create post form -->
-				{!! Form::open(['route' => 'posts.store', 'class' => 'form-horizontal']) !!}
+				{!! Form::open(['route' => 'posts.store', 'class' => 'form-horizontal', 'files' => true]) !!}
 	 		   		<div class="box-body">
 	 		   			<div class="form-group">
 	 		   				{{ Form::label('title', 'Title:', array('class' => 'col-sm-2 control-label', 'id' => 'title')) }}
@@ -68,6 +68,12 @@
 										<option value="{{ $tag->id }}">{{ $tag->name }}</option>
 					                  @endforeach
 				                </select>
+			                </div>
+	 		   			</div>
+	 		   			<div class="form-group">
+	 		   				<label for="image" class="col-sm-2 control-label">Image</label>
+			                <div class="col-sm-10">
+			                	<input type="file" name="image" class="form-control">
 			                </div>
 	 		   			</div>
 	 		   			<div class="form-group">

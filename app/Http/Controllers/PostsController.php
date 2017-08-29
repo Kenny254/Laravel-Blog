@@ -8,6 +8,8 @@ use Purifier;
 use App\Post;
 use App\Category;
 use App\Tag;
+use Image;
+use Storage;
 
 class PostsController extends Controller
 {
@@ -49,6 +51,7 @@ class PostsController extends Controller
              'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
              'category_id' => 'required|integer',
              'body' => 'required|min:50',
+             'image' => 'sometimes|image',
             ]);
         
         // The blog post is valid, store in database...
@@ -57,6 +60,16 @@ class PostsController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
+
+        //add image
+        if($request->hasFile('image'))
+        {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(800, 400)->save(public_path('/images/posts/' . $filename));
+
+            $post->image = $filename;
+        }
 
         $post->save();
 
@@ -113,25 +126,15 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::find($id);
-        if ($request->input('slug') == $post->slug) 
-        {
-           // Validate the title and body...
-            $this->validate($request, [
-                 'title' => 'required|max:255',
-                 'category_id' => 'required|integer',
-                 'body' => 'required',
-                ]); 
-        }
-        else
-        {
-            // Validate the request...
-            $this->validate($request, [
-                 'title' => 'required|max:255',
-                 'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
-                 'category_id' => 'required|integer',
-                 'body' => 'required',
-                ]);
-        }
+
+        // Validate the request...
+        $this->validate($request, [
+             'title' => 'required|max:255',
+             'slug' => "required|alpha_dash|min:5|max:255|unique:posts,slug,$id",
+             'category_id' => 'required|integer',
+             'body' => 'required',
+             'image' => 'image',
+            ]);
         
         // update into DB
         $post = Post::find($id);
@@ -139,6 +142,20 @@ class PostsController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
+
+        if ($request->hasFile('image')) {
+            //add new photo
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(800, 400)->save(public_path('/images/posts/' . $filename));
+            $oldFilename = $post->image;
+
+            //update DB
+            $post->image = $filename;
+            //Delete Old
+            Storage::delete($oldFilename);
+        } 
+        
 
         //save into DB
         $post->save();
@@ -169,6 +186,8 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->tags()->detach();
         $post->category()->detach();
+
+        Storage::delete($post->image);
 
         $post->delete();
         

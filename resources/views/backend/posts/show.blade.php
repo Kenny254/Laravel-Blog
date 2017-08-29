@@ -67,9 +67,6 @@
 
 		<div class="col-md-9">
 			<div class="box box-info">
-				<div class="box-header with-border">
-					<h3 class="box-title">Read Post</h3>
-				</div>
 				<div class="box-body no-padding">
 					<div class="mailbox-read-info">
 						<h3>{{ $post->title }}</h3>
@@ -83,6 +80,7 @@
 					</div>
 					<!-- /. mailbox-controls -->
 					<div class="mailbox-read-message">
+            <img src="{{ asset('images/posts/' . $post->image) }}" class="img-responsive pad" alt="post-image">
 						<p class="text-justify">{!! $post->body !!}</p>
 					</div>
 				</div>
