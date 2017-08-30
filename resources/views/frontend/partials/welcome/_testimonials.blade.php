@@ -5,7 +5,7 @@
                 <div class="slider-2">
                     <div class="single-team text-center">
                         <div class="team-image">
-                            <img src="{{ asset('images/review/review1.jpg') }}" alt="" class="img-circle">
+                            <img src="" alt="" class="img-circle">
                         </div>
                         <div class="team-details mt-20">
                             <h2>Sakishi Mayo</h2>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="single-team text-center">
                         <div class="team-image">
-                            <img src="{{ asset('images/review/review2.jpg') }}" alt="" class="img-circle">
+                            <img src="" alt="" class="img-circle">
                         </div>
                         <div class="team-details mt-20">
                             <h2>Kyle Redlove</h2>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="single-team text-center">
                         <div class="team-image">
-                            <img src="{{ asset('images/review/review3.jpg') }}" alt="" class="img-circle">
+                            <img src="" alt="" class="img-circle">
                         </div>
                         <div class="team-details mt-20">
                             <h2>Toney Tech</h2>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="single-team text-center">
                         <div class="team-image">
-                            <img src="{{ asset('images/review/review4.jpg') }}" alt="" class="img-circle">
+                           <img src="" alt="" class="img-circle">
                         </div>
                         <div class="team-details mt-20">
                             <h2>Mitchelle Jones</h2>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
@@ -17,11 +18,16 @@ class BlogController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->take(5)
                 ->get();
+        $userlatest = DB::table('posts')
+                    ->where('user_id', Auth::user()->id)
+                    ->orderBy('created_at', 'desc')
+                    ->take(5)
+                    ->get();
         $tags = Tag::all();
         $categories = Category::all();
 
 		//return the view
-        return view('frontend.pages.blog.index', compact('posts', 'tags', 'categories', 'latest'));
+        return view('frontend.pages.blog.index', compact('posts', 'tags', 'categories', 'latest', 'userlatest'));
 	}
 
     public function getSingle($slug)
@@ -34,13 +40,18 @@ class BlogController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->take(5)
                 ->get();
+        $userlatest = DB::table('posts')
+                    ->orderBy('created_at', 'desc')
+                    ->where('user_id', Auth::user()->id)
+                    ->take(5)
+                    ->get();
         // Get the latest 5 posts
-        $posts = DB::table('posts')
+        /*$posts = DB::table('posts')
                 ->orderBy('created_at', 'desc')
                 ->take(3)
                 ->get();
-
+            */
         //return the view
-        return view('frontend.pages.blog.read', compact('post', 'posts', 'tags', 'categories', 'latest'));
+        return view('frontend.pages.blog.read', compact('post', 'tags', 'categories', 'latest', 'userlatest'));
     }
 }

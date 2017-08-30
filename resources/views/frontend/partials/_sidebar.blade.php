@@ -17,21 +17,23 @@
 
 	<div class="widget">
 		<div class="recent-posts-widget">
-			<h3 class="title-sidebar">Your latest posts</h3>
-			<ul class="nav nav-stacked">
-				<li><a href="">Tech is power</a></li>
-				<li><a href="">My first love</a></li>
-				<li><a href="">Campus is fun, and scary</a></li>
-				<li><a href="">Imagine me</a></li>
-				<li><a href="">From my head</a></li>
-			</ul>
+			<h3 class="title-sidebar">Your 5 latest posts</h3>
+			@if(Auth::guest())
+				<div class="alert alert-warning text-center">Log in to see your latest posts</div>
+			@else		
+				<ul class="nav nav-stacked">
+					@foreach($userlatest as $mine)
+						<li><a href="{{ route('blog.single', $mine->slug) }}">{{ $mine->title }}</a></li>
+					@endforeach
+				</ul>
+			@endif
 		</div> <!-- ./end recent-posts-widget -->
 	</div> <!--./end widget -->
 
 	<div class="widget">
 		<div class="recent-posts-widget">
-			<h3 class="title-sidebar">Latest from the blog</h3>
-			@if(count($posts) > 0)
+			<h3 class="title-sidebar">Latest 5 posts from the blog</h3>
+			@if(count($latest) > 0)
 				<ul class="nav nav-stacked">
 				  @foreach($latest as $recent)
 					<li><a href="{{ route('blog.single', $recent->slug) }}"><img src="{{ asset('images/blogging.png') }}" alt="" style="width: 18px; height: 18px;"> {{ $recent->title }}</a></li>
@@ -39,14 +41,14 @@
 				  @endforeach
 				</ul>
 			@else
-				<div class="alert alert-warning">
-					<strong>Oops: </strong> No posts available!
+				<div class="alert alert-warning text-center">
+					No posts are available
 				</div>
 			@endif
 		</div> <!-- ./end recent-posts-widget -->
 	</div> <!--./end widget -->
 
-	<div class="widget">
+	<div class="widget" id="categories">
 		<div class="recent-posts-widget">
 			<h3 class="title-sidebar">Categories</h3>
 			@if(count($categories) > 0)
@@ -55,6 +57,8 @@
 						<li><a href="">{{ $category->name }} <span class="badge default pull-right">{{ $category->posts()->count() }}</span></a></li>
 				@endforeach
 				</ul>
+			@else
+				<div class="alert alert-warning text-center">No categories are available</div>
 			@endif
 		</div> <!-- ./end recent-posts-widget -->
 	</div> <!--./end widget -->
@@ -62,9 +66,15 @@
 	<div class="widget">
 		<div class="recent-posts-widget tags">
 			<h3 class="title-sidebar">Tags</h3>
-			@foreach($tags as $tag)
-				<a href="" class="btn btn-sm btn-info">{{ $tag->name }}</a>
-			@endforeach
+			@if(count($tags) > 0)
+				@foreach($tags as $tag)
+					<a href="" class="btn btn-sm btn-info">{{ $tag->name }}</a>
+				@endforeach
+			@else
+				<div class="alert alert-warning text-center">
+					No tags are available
+				</div>
+			@endif
 		</div> <!-- ./end tags-widget -->
 	</div> <!--./end widget -->
 			

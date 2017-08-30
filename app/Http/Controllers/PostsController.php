@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use Purifier;
 use App\Post;
 use App\Category;
@@ -20,7 +21,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'asc')->paginate(10);
+        $posts = Post::where('user_id', Auth::user()->id)->orderBy('id', 'asc')->paginate(10);
         return view('backend/posts/index', compact('posts'));
     }
 
@@ -60,6 +61,7 @@ class PostsController extends Controller
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = Purifier::clean($request->body);
+        $post->user_id = Auth::user()->id;
 
         //add image
         if($request->hasFile('image'))

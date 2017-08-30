@@ -17,33 +17,35 @@
                     <ul class="nav navbar-nav navbar-right">
                           <li><a href="{{ url('/') }}" class="{{ Request::is('/' ? "active" : "") }}">Home</a></li>
                           <li><a href="{{ route('blog.index') }}" class="">Blog</a></li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
-                            <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a href="#"><i class="fa fa-television"></i> Lifestyle</a></li>
-                              <li><a href="#"><i class="fa fa-female"></i> Fashion</a></li>
-                              <li><a href="#"><i class="fa fa-tree"></i> Nature</a></li>
-                              <li><a href="#"><i class="fa fa-cutlery"></i> &nbsp;Food</a></li>
-                              <li><a href="#"><i class="fa fa-male"></i> &nbsp;&nbsp;Political</a></li>
-                              <li><a href="#"><i class="fa fa-bar-chart"></i> Economics</a></li>
-                              <li><a href="#"><i class="fa fa-laptop"></i> Technology</a></li>
-                            </ul>
-                          </li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account
-                            <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                              <li><a href="{{ url('dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-                              <li><a href="#"><i class="fa fa-user"></i> &nbsp;Profile</a></li>
-                              <li role="separator" class="divider"></li>
-                              <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-                            </ul>
-                          </li>
+                          <li><a href="#categories">Categories</a></li>
 
-                          
+                          @if(Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/register') }}">Register</a></li>
+                          @else
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="position: relative; padding-left: 35px;">
+                              <img src="/images/avatars/{{ Auth::user()->avatar }}" style="width: 30px; height: 30px; border-radius: 50%; position: absolute; top: -10px; left: 0;">
+                              {{ Auth::user()->name }}
+                              <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" style="margin-top: 10px;">
+                                <li><a href="{{ url('dashboard') }}">My Dashboard</a></li>
+                                <li><a href="{{ route('posts.create') }}">New Post</a></li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                        Logout 
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                              </ul>
+                            </li>
+                          @endif
                       </ul>
                   </div><!-- /.navbar-collapse -->
                 </div>

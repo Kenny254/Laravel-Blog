@@ -13,7 +13,7 @@
 					<p class="about-pb">We get it, some apps can be quite overwhelming and end up confusing the user. Quickpost Blog Application has you covered, watch this quick video on youtube and familiarize yourself with how our app works. Go on and comment on the youtube link and let us know how we can make the app better.</p>
 					<p>Or better still, save your data plan and download the whole documentation by clicking the button below. </p>
 					<div class="about-icon">
-						<a class="button" href=""> DOWNLOAD PDF</a>
+						<a class="button" href="{{ asset('docs/brochure.pdf') }}" download="Quickpost Brochure"> DOWNLOAD &nbsp;OUR &nbsp;BROCHURE</a>
 					</div>
 				</div>
 			</div>

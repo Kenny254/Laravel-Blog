@@ -1,7 +1,7 @@
 <div class="newsletter-area bg-oapcity-40 ptb-120 bg-img-4">
     <div class="container">
         <div class="about-bottom-left download-mrg clearfix text-center">
-            <h2>sign up for newsletter</h2>
+            <h2>Join our mailing list</h2>
             <p>Want instant news on new features, sign up for our newsletter below and stay on the know always. <br>You can unsubscribe any time your wish. </p>
         </div>
         <div class="row">

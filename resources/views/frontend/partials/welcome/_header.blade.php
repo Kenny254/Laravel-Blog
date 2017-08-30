@@ -15,12 +15,12 @@
                     <div class="main-menu float-right collapse navbar-collapse" id="main-menu-2">
                         <nav>
                             <ul class="menu one-page">
-                                <li class="active push-it"><a href="text-animator.html#home-area" class="fancy">HOME</a></li>
+                                <li class="active push-it"><a href="text-animator.html#home-area" class="fancy">Home</a></li>
                                 <li class="push-it"><a href="text-animator.html#about-area" class="fancy">About</a></li>
-                                <li class="push-it"><a href="text-animator.html#features-area" class="fancy">FEATURES</a></li>
-                                <li class="push-it"><a href="text-animator.html#pricing-area" class="fancy">pricing </a></li>
-                                <li class="push-it"><a href="text-animator.html#review-area" class="fancy">reviews</a></li>
-                                <li class="push-it"><a href="text-animator.html#support-area" class="fancy">support</a></li>
+                                <li class="push-it"><a href="text-animator.html#features-area" class="fancy">Features</a></li>
+                                <li class="push-it"><a href="text-animator.html#pricing-area" class="fancy">Pricing</a></li>
+                                <li class="push-it"><a href="text-animator.html#review-area" class="fancy">Reviews</a></li>
+                                <li class="push-it"><a href="text-animator.html#support-area" class="fancy">Support</a></li>
                                 <li class="push-it"><a href="{{ url('blog') }}" class="fancy">Blog </a></li>
 
                                 @if(Auth::guest())
