@@ -36,7 +36,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign(['post_id']);
         Schema::dropIfExists('comments');
     }
 }

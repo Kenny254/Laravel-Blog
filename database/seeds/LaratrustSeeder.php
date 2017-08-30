@@ -51,6 +51,7 @@ class LaratrustSeeder extends Seeder
                 }
             }
 
+            /*
             $this->command->info("Creating '{$key}' user");
             // Create default user for each role
             $user = \App\User::create([
@@ -60,6 +61,7 @@ class LaratrustSeeder extends Seeder
                 'remember_token' => str_random(10),
             ]);
             $user->attachRole($role);
+            */
         }
     }
 

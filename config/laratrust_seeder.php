@@ -2,29 +2,20 @@
 
 return [
     'role_structure' => [
-        'superadministrator' => [
+        'superadmin' => [
             'users' => 'c,r,u,d',
+            'posts' => 'r,d',
             'acl' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'administrator' => [
+        'admin' => [
             'users' => 'c,r,u,d',
+            'posts' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'editor' => [
-            'profile' => 'r,u'
-        ],
-        'author' => [
-            'profile' => 'r,u'
-        ],
-        'contributor' => [
-            'profile' => 'r,u'
-        ],
-        'supporter' => [
-            'profile' => 'r,u'
-        ],
-        'subscriber' => [
-            'profile' => 'r,u'
+        'user' => [
+            'posts' => 'c,r,u,d',
+            'profile' => 'r,u',
         ],
     ],
     'permissions_map' => [

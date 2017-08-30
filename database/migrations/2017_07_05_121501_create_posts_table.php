@@ -37,7 +37,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropForeign(['user_id']);
         Schema::dropIfExists('posts');
     }
 }

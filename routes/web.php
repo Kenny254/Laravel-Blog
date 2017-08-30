@@ -34,7 +34,7 @@ All these routes point to all static pages of this application
 
 
 
-Route::middleware(['role:superadministrator|administrator|editor|author'])->group(function () {
+Route::middleware(['role:user'])->group(function () {
 	Route::get('dashboard', 'Backend\PagesController@getIndex');
 	Route::resource('posts', 'PostsController');
 	Route::resource('users', 'Backend\UsersController');
