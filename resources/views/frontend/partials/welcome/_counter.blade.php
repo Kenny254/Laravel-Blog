@@ -7,7 +7,7 @@
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
                     <div class="funfact-count text-uppercase">
-                        <h3><span class="counter">1000</span></h3>
+                        <h3><span class="counter">{{ count($users) }}</span></h3>
                         <h5>active users</h5>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                         <i class="fa fa-bookmark" aria-hidden="true"></i>
                     </div>
                     <div class="funfact-count text-uppercase">
-                        <h3><span class="counter">10</span>+</h3>
+                        <h3><span class="counter">{{ count($categories) }}</span>+</h3>
                         <h5>categories</h5>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                         <i class="fa fa-sticky-note" aria-hidden="true"></i>
                     </div>
                     <div class="funfact-count text-uppercase">
-                        <h3><span class="counter">2400</span></h3>
+                        <h3><span class="counter">{{ count($allposts) }}</span></h3>
                         <h5>posts</h5>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         <i class="fa fa-comments" aria-hidden="true"></i>
                     </div>
                     <div class="funfact-count text-uppercase">
-                        <h3><span class="counter">11000</span></h3>
+                        <h3><span class="counter">{{ count($comments) }}</span></h3>
                         <h5>comments</h5>
                     </div>
                 </div>

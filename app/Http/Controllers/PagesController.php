@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
+use App\Comment;
+use App\Category;
 use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
@@ -13,11 +16,14 @@ class PagesController extends Controller
         // Get the latest 5 posts
         $posts = DB::table('posts')
                 ->orderBy('created_at', 'desc')
-                ->take(5)
+                ->take(2)
                 ->get();
-
-
-        return view('frontend/pages/welcome', compact('posts'));
+        $allposts = Post::all();
+        $comments = Comment::all();
+        $categories = Category::all();
+        $users = User::all();
+                
+        return view('frontend/pages/welcome', compact('posts', 'allposts', 'users', 'comments', 'categories'));
     }
 
 }

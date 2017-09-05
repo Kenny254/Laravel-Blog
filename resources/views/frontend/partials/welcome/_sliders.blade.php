@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-md-5 col-sm-4">
                     <div class="slider-imgj">
-                        
+                        <img src="{{ asset('images/man.png') }}" alt="" style="height: 435px;">
                     </div>
                 </div>
             </div>

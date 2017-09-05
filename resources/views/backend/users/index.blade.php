@@ -53,16 +53,12 @@
                               <span>No roles assigned</span>
                           @else
                               @foreach ($user->roles as $r)
-                                 @if($r->name == 'superadministrator')
+                                 @if($r->name == 'support')
                                     <span class="label label-success">{{ $r->name }}</span>
-                                 @elseif($r->name == 'editor')
-                                    <span class="label label-warning">{{ $r->name }}</span>
-                                 @elseif($r->name == 'supporter')
+                                 @elseif($r->name == 'user')
                                     <span class="label label-info">{{ $r->name }}</span>
-                                 @elseif($r->name == 'subscriber')
-                                    <span class="label label-danger">{{ $r->name }}</span>
                                  @else
-                                    <span class="label label-primary">{{ $r->name }}</span>
+                                    <span class="label label-warning">{{ $r->name }}</span>
                                  @endif
                               @endforeach
                           @endif

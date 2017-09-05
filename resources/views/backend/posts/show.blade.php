@@ -22,7 +22,7 @@
 		<div class="col-md-3">
 		   <div class="row">
 		   		<div class="col-md-6">
-			    	<a href="{{ route('posts.create') }}" class="btn btn-primary btn-block margin-bottom">New Post</a>
+			    	<a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary btn-block margin-bottom">View in Blog</a>
 			    </div>
 			    <div class="col-md-6">
 			    	<a href="{{ route('posts.index') }}" class="btn btn-info btn-block margin-bottom">Back to posts</a>
@@ -44,7 +44,11 @@
                 <li><a href="{{ route('blog.single', $post->slug) }}"><i class="fa fa-link"></i>{{ route('blog.single', $post->slug) }}</a></li>
                 <li><a><i class="fa fa-user"></i> By : <span class="">{{ Auth::user()->name }}</span></a></li>
                 <li><a><i class="fa fa-calendar"></i> Created on : <span class="">{{ date('M j, Y H:i', strtotime($post->created_at)) }}</span></a></li>
-                <li><a><i class="fa fa-sticky-note"></i> Category : <span class="label label-success">{{ $post->category->name }}</span></a></li>
+                @if($post->category_id == null)
+                  <li><a><i class="fa fa-sticky-note"></i> Category : No categories</a></li>
+                @else
+                  <li><a><i class="fa fa-sticky-note"></i> Category : <span class="label label-success">{{ $post->category->name }}</span></a></li>
+                @endif
                 <li>
                 	<a>
                 		<i class="fa fa-tags"></i> 
@@ -103,7 +107,7 @@
 
               <div class="box-tools">
                 <div class="input-group input-group-sm">
-	                 <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm"> New Comment</a>
+	                 <a href="{{ route('blog.single', $post->slug) . '#comments'}}" class="btn btn-primary btn-sm"> View Comments in Blog</a>
                 </div>
               </div>
             </div>

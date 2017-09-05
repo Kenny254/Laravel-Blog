@@ -5,32 +5,27 @@
             <p>Read some of the latest posts from our blog.</p>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="blog-img-text res">
-                    <div class="blog-img">
-                        <a href=""><img src="img/blog/1.jpg" alt=""></a>
+            @if(count($posts) > 0)
+                @foreach($posts as $post)
+                    <div class="col-md-6 col-sm-6">
+                        <div class="blog-img-text res">
+                            <div class="blog-img">
+                                <a href=""><img src="{{ asset('images/posts/' . $post->image) }}" alt="" style="width: 300px; height: 260px;"></a>
+                            </div>
+                            <div class="blog-text">
+                                <span>{{ date('M j, Y', strtotime($post->created_at)) }}</span>
+                                <h4><a href="text-animator.html#">{{ $post->title }}</a></h4>
+                                <p>{{ substr(strip_tags($post->body), 0, 80) }}{{ strlen(strip_tags($post->body)) > 80 ? "..." : "" }}</p>
+                                <a href="">Read More <i class="ion-arrow-right-c"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="blog-text">
-                        <span>15 May 2016</span>
-                        <h4><a href="text-animator.html#">There are many variations of passa Lorem.</a></h4>
-                        <p>Sed ut perspiciatis unde omnis natus error sit voluptatem accusan dolorentium, totam bondho.</p>
-                        <a href="">Read More <i class="ion-arrow-right-c"></i></a>
-                    </div>
+                @endforeach
+            @else
+                <div class="col-md-6 col-md-offset-3 alert alert-warning text-center">
+                    Oops! No posts have been posted yet
                 </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="blog-img-text">
-                    <div class="blog-img">
-                        <a href=""><img src="img/blog/2.jpg" alt=""></a>
-                    </div>
-                    <div class="blog-text">
-                        <span>15 May 2016</span>
-                        <h4><a href="text-animator.html#">There are many variations of passa Lorem.</a></h4>
-                        <p>Sed ut perspiciatis unde omnis natus error sit voluptatem accusan dolorentium, totam bondho.</p>
-                        <a href="">Read More <i class="ion-arrow-right-c"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>

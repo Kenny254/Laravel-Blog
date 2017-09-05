@@ -27,7 +27,7 @@
       			<span class="time"><a href="#comment"><i class="fa fa-pencil"></i> Comment</a></span> &nbsp;<span class="separator">I</span>&nbsp; 
       			<span class="time"><a href="#comments"><i class="fa fa-comments"></i> {{ $post->comments->count() }} @if($post->comments()->count() == 1) comment @else comments @endif</a></span>
       		</div>
-      		<img src="{{ asset('images/wolf.jpg') }}" alt="">
+      		<img src="{{ asset('images/posts/' . $post->image) }}" alt="">
       		<div class="caption">
       			<p class="text-justify">{!! $post->body !!}</p> <br>
       			<div class="similar-category">

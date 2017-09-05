@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Session;
 
 class TagsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:support|admin');
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *

@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Category;
 use Illuminate\Support\Facades\Session;
+use App\Post;
 
 class CategoriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:support|admin');
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -104,9 +111,10 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category->posts()->detach();
 
         $category->delete();
+
+        Post::whereCategoryId($id)->update(['category_id' => null]);
 
         Session::flash('delete-category', 'The category has been deleted successfully');
         return redirect()->route('categories.index');

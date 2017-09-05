@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:support|admin')->except('changeAvatar');
+        $this->middleware('auth');
+        $this->middleware('role:support|admin|user')->only('changeAvatar');
+    }
     /**
      * Display a view with all the users.
      *
@@ -51,7 +57,7 @@ class UsersController extends Controller
              'password' => 'required',
             ]);
         
-        // The blog post is valid, store in database...
+        // The user is valid, store in database...
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;

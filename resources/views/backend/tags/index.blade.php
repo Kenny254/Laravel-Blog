@@ -37,6 +37,7 @@
                 <thead>
                   <th>ID</th>
                   <th>Name</th>
+                  <th>No. of posts tagged</th>
                   <th>Created at</th>
                   <th>Updated at</th>
                   <th>Action</th>
@@ -48,6 +49,7 @@
                       <tr>
                         <td>{{ $tag->id }}</td>
                         <td>{{ $tag->name }}</td>
+                        <td>{{ $tag->posts()->count() }}</td>
                         <td>{{ date('M j, Y H:i', strtotime($tag->created_at)) }}</td>
                         <td>{{ date('M j, Y H:i', strtotime($tag->updated_at)) }}</td>
                         <td>

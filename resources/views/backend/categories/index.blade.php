@@ -62,7 +62,7 @@
 							<tr>
 								<td>{{ $category->id }}</td>
 								<td>{{ $category->name }}</td>
-								<td>0</td>
+								<td>{{ $category->posts()->count() }}</td>
 								<td>{{ date('M j, Y H:i', strtotime($category->created_at)) }}</td>
 								<td>{{ date('M j, Y H:i', strtotime($category->updated_at)) }}</td>
 								<td>
@@ -100,26 +100,6 @@
 
 @endsection
 
-@push('scripts')
-<!--
-	<script>
-	$(function() {
-	    $('#posts-table').DataTable({
-	        processing: true,
-	        serverSide: true,
-	        ajax: ,
-	        columns: [
-	            { data: 'id', name: 'id' },
-	            { data: 'title', name: 'title' },
-	            { data: 'created_at', name: 'created_at' },
-	            { data: 'updated_at', name: 'updated_at' },
-	            {data: 'action', name: 'action', orderable: false, searchable: false}
-	        ]
-	    });
-	});
-	</script>
--->
-@endpush
 
 
 

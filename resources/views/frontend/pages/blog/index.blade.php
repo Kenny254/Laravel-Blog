@@ -15,11 +15,11 @@
 		            <div class="col-xs-4">
 		            	<a href="{{ route('blog.single', $post->slug) }}">
 		            		<div class="thumbnail post-thumb">	            		
-	            			<img src="/images/posts/{{ $post->image }}" alt="" style="height: 193.8px !important;">
-	            			<h5 class="index-category"><a href="">{{ $post->category->name }}</a></h5>
-	            			<h5 class="index-title text-justify">{{ $post->title }}</h5>
-		          			<p class="index-comments">{{ $post->comments()->count() }} comments / {{ date('M j, Y', strtotime($post->created_at)) }}</p>
-		            	</div>
+		            			<img src="/images/posts/{{ $post->image }}" alt="" style="height: 193.8px !important;">
+		            			<h5 class="index-category"><a href="">{{ $post->category->name }}</a></h5>
+		            			<h5 class="index-title text-justify">{{ $post->title }}</h5>
+			          			<p class="index-comments">{{ $post->comments()->count() }} comments / {{ date('M j, Y', strtotime($post->created_at)) }}</p>
+		            		</div>
 		            	</a>
 		            </div>
 		        @endforeach

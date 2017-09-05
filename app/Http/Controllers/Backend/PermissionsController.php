@@ -8,6 +8,12 @@ use App\Permission;
 
 class PermissionsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:support|admin');
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *

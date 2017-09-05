@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 use Purifier;
@@ -10,10 +11,18 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Image;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        // Users have to be authenticated to access posts
+        $this->middleware('auth');
+
+        $this->middleware('role:user|admin|support');
+    }
+    
     /**
      * Displays view with all posts
      *
@@ -22,7 +31,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::where('user_id', Auth::user()->id)->orderBy('id', 'asc')->paginate(10);
-        return view('backend/posts/index', compact('posts'));
+        $allposts = Post::paginate(10);
+        return view('backend/posts/index', compact('posts', 'allposts'));
     }
 
     /**
@@ -187,7 +197,8 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         $post->tags()->detach();
-        $post->category()->detach();
+        
+       // $post->category()->detach();
 
         Storage::delete($post->image);
 

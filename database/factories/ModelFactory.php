@@ -11,28 +11,38 @@
 |
 */
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-/*$factory->define(App\User::class, function (Faker\Generator $faker) {
+/*@var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('password'),
         'remember_token' => str_random(10),
     ];
-}); */
+}); 
+
 
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
+
     return [
         'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'slug' => $faker->slug(),
-        'category_id' => $faker->numberBetween($min = 1, $max = 10),
+        'category_id' => $faker->numberBetween($min = 1, $max = 12),
         'body' => $faker->realText($maxNbChars = 500),
+        'user_id' => App\User::all()->random()->id,
+        'image' => $faker->image('public/images/posts',1920,1080, null, false),
     ];
 });
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word(),
+    ];
+});
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->word(),
     ];

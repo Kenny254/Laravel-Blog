@@ -18,6 +18,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li><a href="{{ url('/') }}">Back to Frontend<span class="sr-only">(current)</span></a></li>
+          <li><a href="{{ route('blog.index') }}">Blog<span class="sr-only">(current)</span></a></li>
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -139,7 +140,7 @@
                 <img src="/images/avatars/{{ Auth::user()->avatar }}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ Auth::user()->name }} - Web Developer
+                  {{ Auth::user()->name }}
                   <small>Member since {{ date('M j, Y H:i', strtotime(Auth::user()->created_at)) }}</small>
                 </p>
               </li>

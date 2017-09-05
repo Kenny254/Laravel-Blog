@@ -21,13 +21,14 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->integer('category_id')->nullable()->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
-            $table->softDeletes();
         });
 
-        Schema::table('posts', function (Blueprint $table) {
+      /*  Schema::table('posts', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
+        */
     }
 
     /**
@@ -37,6 +38,9 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign('posts_user_id_foreign');
+        });
         Schema::dropIfExists('posts');
     }
 }
