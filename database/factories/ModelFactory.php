@@ -29,7 +29,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'slug' => $faker->slug(),
-        'category_id' => $faker->numberBetween($min = 1, $max = 12),
+        'category_id' => \App\Category::all()->random()->id,
         'body' => $faker->realText($maxNbChars = 500),
         'user_id' => App\User::all()->random()->id,
         'image' => $faker->image('public/images/posts',1920,1080, null, false),

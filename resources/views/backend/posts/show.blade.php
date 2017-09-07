@@ -42,7 +42,7 @@
               <ul class="nav nav-pills nav-stacked"> 
                 <li><a href="#comments"><i class="fa fa-comments"></i> Comments <span class="label label-warning pull-right">{{ $post->comments()->count() }}</span></a></li>
                 <li><a href="{{ route('blog.single', $post->slug) }}"><i class="fa fa-link"></i>{{ route('blog.single', $post->slug) }}</a></li>
-                <li><a><i class="fa fa-user"></i> By : <span class="">{{ Auth::user()->name }}</span></a></li>
+                <li><a><i class="fa fa-user"></i> By : <span class="">{{ $post->user->name }}</span></a></li>
                 <li><a><i class="fa fa-calendar"></i> Created on : <span class="">{{ date('M j, Y H:i', strtotime($post->created_at)) }}</span></a></li>
                 @if($post->category_id == null)
                   <li><a><i class="fa fa-sticky-note"></i> Category : No categories</a></li>
@@ -74,7 +74,7 @@
 				<div class="box-body no-padding">
 					<div class="mailbox-read-info">
 						<h3>{{ $post->title }}</h3>
-						<h5>By Anthony Mutinda
+						<h5>By {{ $post->user->name }}
 							<span class="mailbox-read-time pull-right">{{ date('M j, Y H:i', strtotime($post->created_at)) }}</span>
 						</h5>
 					</div>

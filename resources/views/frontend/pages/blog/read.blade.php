@@ -18,7 +18,7 @@
 	      			{{ $post->title }}
 	      		</h2>
 	      		<h3 class="author">
-	      			Posted By Anthony Mutinda
+	      			Posted By {{ $post->user->name }}
 	      		</h3>
       		</div>
       		<hr class="section-separator">

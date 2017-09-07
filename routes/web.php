@@ -56,6 +56,7 @@ Route::namespace('Backend')->group(function () {
 	Route::resource('roles', 'RolesController');
 	Route::resource('categories', 'CategoriesController');
 	Route::resource('tags', 'TagsController');
+	Route::get('users_pdf', 'PdfController@users')->name('users.pdf');
 });
 
 

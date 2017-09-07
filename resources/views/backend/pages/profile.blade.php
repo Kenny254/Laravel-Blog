@@ -24,14 +24,16 @@
             <!-- Profile Image -->
 	        <div class="box box-primary">
 	            <div class="box-body box-profile">
-				    <img class="profile-user-img img-responsive img-circle" src="../images/avatars/{{ Auth::user()->avatar }}" alt="User profile picture" style="border: none;">
+				    <img class="profile-user-img img-responsive img-circle" src="../images/avatars/{{ $user->avatar }}" alt="User profile picture" style="border: none;">
 
-				        <h3 class="profile-username text-center">{{ Auth::user()->name }}</h3>
-				        <p class="text-muted text-center">Software Engineer</p>
+				        <h3 class="profile-username text-center">{{ $user->name }}</h3>
+				        <p class="text-muted text-center">
+				        	
+				        </p>
 
 		                <ul class="list-group list-group-unbordered">
 			                <li class="list-group-item">
-				                My Posts <a class="pull-right">1,322</a>
+				                My Posts <a class="pull-right">{{ count($user->posts) }}</a>
 			                </li>
 			                <li class="list-group-item">
 				                Commented Posts <a class="pull-right">69</a>
@@ -67,7 +69,9 @@
 					<hr>
         			<strong><i class="fa fa-pencil margin-r-5"></i> Roles</strong>
         			<p>
-        				<span class="label label-danger">Superadmin</span>
+        				@foreach($user->roles as $r)
+							<span class="label label-success">{{ $r->name }}</span>
+			        	@endforeach
         			</p>
 					<hr>
         			<strong><i class="fa fa-sticky-note"></i> Last post</strong>

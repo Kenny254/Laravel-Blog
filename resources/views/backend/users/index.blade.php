@@ -25,7 +25,10 @@
 
               <div class="box-tools">
                 <div class="input-group input-group-sm">
-	                 <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Create New User</a>
+                   @role('support|admin')
+	                   <a href="{{ route('users.pdf') }}" class="btn btn-success btn-sm"> <i class="fa fa-file-pdf-o"></i> PDF</a> &nbsp;
+                   @endrole
+                   <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Create New User</a>
                 </div>
               </div>
             </div>

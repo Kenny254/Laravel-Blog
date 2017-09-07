@@ -63,7 +63,8 @@ class PagesController extends Controller
     public function getProfile()
     {
     	// The main dashboard view
-    	return view('backend/pages/profile');
+        $user = Auth::user();
+    	return view('backend/pages/profile', compact('user'));
     }
 
     /**

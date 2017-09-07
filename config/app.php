@@ -173,6 +173,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -238,6 +239,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 
 ];
