@@ -25,8 +25,16 @@
 
               <div class="box-tools">
                 <div class="input-group input-group-sm">
-                   @role('support|admin')
-	                   <a href="{{ route('users.pdf') }}" class="btn btn-success btn-sm"> <i class="fa fa-file-pdf-o"></i> PDF</a> &nbsp;
+                   @role('support' OR 'admin')
+                     <div class="btn-group">
+                       <button type="button" class="btn btn-sm btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export To <span class="caret"></span>
+                       </button>
+                       <ul class="dropdown-menu">
+                         <li><a href="{{ route('users.pdf') }}"><i class="fa fa-file-pdf-o"></i> PDF</a></li>
+                         <li><a href="{{ URL::to('download/xls') }}"> <i class="fa fa-file-excel-o"></i> Excel</a></li>
+                         <li><a href="{{ URL::to('download/csv') }}"> <i class="fa fa-file-excel-o"></i> CSV</a></li>
+                       </ul>
+                     </div> &nbsp;
                    @endrole
                    <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm">Create New User</a>
                 </div>

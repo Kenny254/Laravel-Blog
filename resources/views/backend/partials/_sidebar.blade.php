@@ -33,7 +33,7 @@
         <li class="header text-center">QUICK LINKS</li>
         <!-- Optionally, you can add icons to the links -->
         <li class="{{ Request::is('/dashboard' ? "active" : "") }}"><a href="{{ url('/dashboard') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        @role('support|admin')
+        @role('support' OR 'admin')
           <li class="treeview">
             <a href="#"><i class="fa fa-th-large"></i> <span>Access Control</span>
               <span class="pull-right-container">
@@ -48,7 +48,7 @@
           </li>
         @endrole
         <li class="{{ Request::is('/profile' ? "active" : "") }}"><a href="{{ url('/profile') }}"><i class="fa fa-eye"></i> <span>View profile</span></a></li>
-        @role('support|admin')
+        @role('support' OR 'admin')
           <li><a href="{{ route('categories.index') }}"><i class="fa fa-bookmark"></i> <span>Categories</span></a></li>
         @endrole
         <li class="treeview">
@@ -67,7 +67,7 @@
             @endrole
           </ul>
         </li>
-        @role('support|admin')
+        @role('support' OR 'admin')
           <li><a href="{{ route('tags.index') }}"><i class="fa fa-tags"></i> <span>Tags</span></a></li>
         @endrole
         <li><a href="{{ route('emails.index') }}"><i class="fa fa-envelope"></i> <span>Mailbox</span></a></li>
